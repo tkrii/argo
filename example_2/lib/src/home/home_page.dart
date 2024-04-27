@@ -13,7 +13,7 @@ import 'package:ionicons/ionicons.dart';
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   HomePageState createState() => HomePageState();

@@ -9,7 +9,7 @@ const _gridDelegate = SliverGridDelegateWithMaxCrossAxisExtent(
 );
 
 class ColorsView extends StatelessWidget {
-  const ColorsView({Key? key}) : super(key: key);
+  const ColorsView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +114,10 @@ class ColorsView extends StatelessWidget {
               ),
             ),
             Text(
-              backgroundColor.toString().replaceAll('Color(0x', '#').replaceAll(')', ''),
+              backgroundColor
+                  .toString()
+                  .replaceAll('Color(0x', '#')
+                  .replaceAll(')', ''),
               style: TextStyle(
                 color: foregroundColor ?? (backgroundColor).onBackgroundColor,
                 fontSize: 8,
@@ -193,7 +196,9 @@ Map<String, (Color, Color?)> _getBaseColors(ThemeData theme) {
 
 Map<String, (Color, Color?)> _getArgoPrimaryColors(ThemeData theme) {
   (Color, Color?) getColor(ArgoVariant variant) {
-    Color base = theme.brightness == Brightness.light ? variant.color : variant.darkColor;
+    Color base = theme.brightness == Brightness.light
+        ? variant.color
+        : variant.darkColor;
     return (base, base.onBackgroundColor);
   }
 
@@ -215,8 +220,17 @@ Map<String, (Color, Color?)> _getArgoPrimaryColors(ThemeData theme) {
 
 Map<String, (Color, Color)> _getExtensionColors(ThemeData theme) {
   return {
-    'success': (theme.colorScheme.success, (theme.colorScheme.success).onBackgroundColor),
-    'warning': (theme.colorScheme.warning, (theme.colorScheme.warning).onBackgroundColor),
-    'link': (theme.colorScheme.link, (theme.colorScheme.link).onBackgroundColor),
+    'success': (
+      theme.colorScheme.success,
+      (theme.colorScheme.success).onBackgroundColor
+    ),
+    'warning': (
+      theme.colorScheme.warning,
+      (theme.colorScheme.warning).onBackgroundColor
+    ),
+    'link': (
+      theme.colorScheme.link,
+      (theme.colorScheme.link).onBackgroundColor
+    ),
   };
 }
