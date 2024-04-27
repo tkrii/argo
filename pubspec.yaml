@@ -1,0 +1,52 @@
+name: argo
+version: "1.2.0"
+
+publish_to: "none"
+
+description: "A material theme"
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.10.0"
+
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  web:
+  windows:
+
+dependencies:
+  collection: ^1.18.0
+  flutter:
+    sdk: flutter
+  platform: ^3.1.4
+
+dev_dependencies:
+  flutter_lints: ^2.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  fonts:
+    - family: FiraSans
+      fonts:
+        - asset: assets/fonts/FiraSans-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/FiraSans-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/FiraSans-Light.ttf
+          weight: 300
+        - asset: assets/fonts/FiraSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/FiraSans-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/FiraSans-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/FiraSans-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/FiraSans-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/FiraSans-Black.ttf
+          weight: 900
