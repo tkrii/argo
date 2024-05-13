@@ -1,12 +1,7 @@
-import 'package:argo/argo.dart'
-    show ArgoVariant, argoHighContrastDark, argoHighContrastLight;
+import 'package:argo/argo.dart' show ArgoVariant, argoHighContrastDark, argoHighContrastLight;
 import 'package:collection/collection.dart' show IterableEquality;
 import 'package:flutter/foundation.dart'
-    show
-        DiagnosticPropertiesBuilder,
-        Diagnosticable,
-        DiagnosticsProperty,
-        IterableProperty;
+    show DiagnosticPropertiesBuilder, Diagnosticable, DiagnosticsProperty, IterableProperty;
 import 'package:flutter/material.dart';
 import 'package:platform/platform.dart' show Platform;
 
@@ -114,8 +109,7 @@ class ArgoTheme extends StatefulWidget {
   /// An optional data from the closest [ArgoTheme] instance that encloses the
   /// given context or `null` if there is no such ancestor.
   static ArgoThemeData? maybeOf(BuildContext context) {
-    final theme =
-        context.dependOnInheritedWidgetOfExactType<_ArgoInheritedTheme>();
+    final theme = context.dependOnInheritedWidgetOfExactType<_ArgoInheritedTheme>();
     return theme?.data;
   }
 
@@ -146,9 +140,7 @@ class _ArgoThemeState extends State<ArgoTheme> {
   ThemeMode resolveMode() {
     final mode = widget.data.themeMode ?? ThemeMode.system;
     if (mode == ThemeMode.system) {
-      return MediaQuery.platformBrightnessOf(context) == Brightness.dark
-          ? ThemeMode.dark
-          : ThemeMode.light;
+      return MediaQuery.platformBrightnessOf(context) == Brightness.dark ? ThemeMode.dark : ThemeMode.light;
     }
     return mode;
   }
@@ -156,8 +148,7 @@ class _ArgoThemeState extends State<ArgoTheme> {
   ArgoThemeData resolveData() {
     return widget.data.copyWith(
       variant: widget.data.variant ?? _variant,
-      highContrast:
-          widget.data.highContrast ?? MediaQuery.highContrastOf(context),
+      highContrast: widget.data.highContrast ?? MediaQuery.highContrastOf(context),
       themeMode: resolveMode(),
     );
   }
@@ -170,7 +161,7 @@ class _ArgoThemeState extends State<ArgoTheme> {
     }
 
     final variant = data.variant ?? ArgoVariant.blue;
-    return (dark ? variant.darkTheme : variant.theme).overrideWith(data);
+    return (dark ? variant.darkTheme : variant.lightTheme).overrideWith(data);
   }
 
   @override
@@ -222,13 +213,11 @@ class ArgoThemeData with Diagnosticable {
 
   /// The light theme of [variant] (or [argoLight] if not available) merged with
   /// the `ArgoThemeData` overrides.
-  ThemeData? get theme =>
-      (variant?.theme ?? ArgoVariant.blue.theme).overrideWith(this);
+  ThemeData? get theme => (variant?.lightTheme ?? ArgoVariant.blue.lightTheme).overrideWith(this);
 
   /// The dark theme of [variant] (or [argoDark] if not available) merged with
   /// the `ArgoThemeData` overrides.
-  ThemeData? get darkTheme =>
-      (variant?.darkTheme ?? ArgoVariant.blue.darkTheme).overrideWith(this);
+  ThemeData? get darkTheme => (variant?.darkTheme ?? ArgoVariant.blue.darkTheme).overrideWith(this);
 
   /// Creates a copy of this [ArgoThemeData] with the provided values.
   ArgoThemeData copyWith({
@@ -258,8 +247,7 @@ class ArgoThemeData with Diagnosticable {
     properties.add(DiagnosticsProperty<bool>('highContrast', highContrast));
     properties.add(DiagnosticsProperty<ThemeMode>('themeMode', themeMode));
     properties.add(IterableProperty('extensions', extensions));
-    properties
-        .add(DiagnosticsProperty('pageTransitionsTheme', pageTransitionsTheme));
+    properties.add(DiagnosticsProperty('pageTransitionsTheme', pageTransitionsTheme));
     properties.add(DiagnosticsProperty('useMaterial3', useMaterial3));
     properties.add(DiagnosticsProperty('visualDensity', visualDensity));
   }

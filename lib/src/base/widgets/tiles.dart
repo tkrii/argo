@@ -8,6 +8,9 @@ ListTileThemeData _createTileTheme(ColorScheme colorScheme) {
     tileColor: Colors.transparent,
     selectedTileColor: colorScheme.surfaceTint,
     selectedColor: colorScheme.onSurface,
+    leadingAndTrailingTextStyle: createTextTheme(
+      colorScheme.secondaryText,
+    ).bodySmall,
     subtitleTextStyle: createTextTheme(
       colorScheme.secondaryText,
     ).bodySmall,

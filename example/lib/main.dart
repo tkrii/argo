@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
 
           /// customization
           themeMode: controller.theme.value,
-          theme: controller.variant.value.theme,
+          theme: controller.variant.value.lightTheme,
           darkTheme: controller.variant.value.darkTheme,
           highContrastTheme: argoHighContrastLight,
           highContrastDarkTheme: argoHighContrastDark,

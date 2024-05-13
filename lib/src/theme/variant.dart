@@ -1,51 +1,52 @@
 import 'package:argo/argo.dart' show createArgoLightTheme, createArgoDarkTheme;
-import 'package:flutter/material.dart' show Color, ThemeData;
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart' show BuildContext, Color, Theme, ThemeData;
 
 /// Describes a Argo variant and its primary color.
 enum ArgoVariant {
   blue(
-    Color(0xff564af7),
     Color(0xff5f58c7),
+    Color(0xff564af7),
   ),
   lightBlue(
-    Color(0xff46b1e3),
     Color(0xff4796c4),
+    Color(0xff46b1e3),
   ),
   cyan(
-    Color(0xff61cfbe),
     Color(0xff5aada0),
+    Color(0xff61cfbe),
   ),
   green(
-    Color(0xff64bb5c),
     Color(0xff5ba854),
+    Color(0xff64bb5c),
   ),
   lime(
-    Color(0xffa5d61d),
     Color(0xff86ad53),
+    Color(0xffa5d61d),
   ),
   purple(
-    Color(0xffac49f5),
     Color(0xff8c55c2),
+    Color(0xffac49f5),
   ),
   pink(
-    Color(0xffe64566),
     Color(0xffd64966),
+    Color(0xffe64566),
   ),
   red(
-    Color(0xffe84026),
     Color(0xffd94838),
+    Color(0xffe84026),
   ),
   orange(
-    Color(0xffed6f21),
     Color(0xffdb6b42),
+    Color(0xffed6f21),
   ),
   lightOrange(
-    Color(0xffd9a01e),
     Color(0xffe08c3a),
+    Color(0xffd9a01e),
   ),
   yellow(
-    Color(0xfff7ce00),
     Color(0xffd1a738),
+    Color(0xfff7ce00),
   ),
   gray(
     Color(0xff838388),
@@ -59,11 +60,15 @@ enum ArgoVariant {
   final Color darkColor;
 
   /// A light theme for the variant.
-  ThemeData get theme => _argoLightThemes[this]!;
+  ThemeData get lightTheme => _argoLightThemes[this]!;
 
   /// A dark theme for the variant.
   ThemeData get darkTheme => _argoDarkThemes[this]!;
 
+  Color from(Brightness brightness) => brightness == Brightness.light ? color : darkColor;
+  Color of(BuildContext context) => from(Theme.of(context).brightness);
+
+  ThemeData theme(BuildContext context) => Theme.of(context).brightness == Brightness.light ? lightTheme : darkTheme;
   List<Color> get colors => [
         blue.color,
         lightBlue.color,
