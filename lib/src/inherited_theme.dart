@@ -127,7 +127,7 @@ class _ArgoThemeState extends State<ArgoTheme> {
       name = name!.substring(5);
     }
     if (name == 'Argo') {
-      return ArgoVariant.blue;
+      return ArgoVariant.azure;
     }
     for (final value in ArgoVariant.values) {
       if (value.name.toLowerCase() == name?.toLowerCase()) {
@@ -156,12 +156,8 @@ class _ArgoThemeState extends State<ArgoTheme> {
   ThemeData resolveTheme(ArgoThemeData data) {
     final dark = data.themeMode == ThemeMode.dark;
 
-    if (data.highContrast!) {
-      return dark ? argoHighContrastDark : argoHighContrastLight;
-    }
-
-    final variant = data.variant ?? ArgoVariant.blue;
-    return (dark ? variant.darkTheme : variant.lightTheme).overrideWith(data);
+    final variant = data.variant ?? ArgoVariant.azure;
+    return (dark ? variant.themeDark : variant.theme).overrideWith(data);
   }
 
   @override
@@ -213,11 +209,11 @@ class ArgoThemeData with Diagnosticable {
 
   /// The light theme of [variant] (or [argoLight] if not available) merged with
   /// the `ArgoThemeData` overrides.
-  ThemeData? get theme => (variant?.lightTheme ?? ArgoVariant.blue.lightTheme).overrideWith(this);
+  ThemeData? get theme => (variant?.theme ?? ArgoVariant.blue.theme).overrideWith(this);
 
   /// The dark theme of [variant] (or [argoDark] if not available) merged with
   /// the `ArgoThemeData` overrides.
-  ThemeData? get darkTheme => (variant?.darkTheme ?? ArgoVariant.blue.darkTheme).overrideWith(this);
+  ThemeData? get darkTheme => (variant?.themeDark ?? ArgoVariant.azure.themeDark).overrideWith(this);
 
   /// Creates a copy of this [ArgoThemeData] with the provided values.
   ArgoThemeData copyWith({

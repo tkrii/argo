@@ -2,18 +2,27 @@ part of '../themes/scheme.dart';
 
 InputDecorationTheme _inputDecorationTheme(ColorScheme colorScheme, ArgoColorTheme colorTheme) {
   TextStyle textStyle = createTextTheme(colorScheme.onSurface).bodySmall!.copyWith(
-        color: colorScheme.onSurface.brightness == Brightness.light ? ArgoColors.white : ArgoColors.black,
+        color: colorScheme.surfaceContainerLowest.foregroundBrightColor,
       );
 
   return InputDecorationTheme(
-    labelStyle: textStyle,
+    labelStyle: WidgetStateTextStyle.resolveWith((state) {
+      if (state.contains(WidgetState.disabled)) {
+        textStyle.copyWith(
+          color: _disabled(
+            colorScheme.surfaceContainerLowest.foregroundColor,
+          ),
+        );
+      }
+      return textStyle;
+    }),
     filled: true,
     fillColor: colorScheme.surfaceContainerLowest,
     floatingLabelStyle: createTextTheme(colorScheme.onSurface).labelLarge!,
     helperStyle: createTextTheme(colorScheme.onSurface).bodySmall!,
     helperMaxLines: 3,
     hintStyle: createTextTheme(colorScheme.onSurface).bodyMedium!.copyWith(
-          color: colorScheme.muted,
+          color: colorScheme.outline,
         ),
     errorStyle: createTextTheme(colorScheme.onSurface).bodySmall?.copyWith(
           color: colorScheme.error,
@@ -21,7 +30,7 @@ InputDecorationTheme _inputDecorationTheme(ColorScheme colorScheme, ArgoColorThe
     errorMaxLines: 3,
     isDense: !kIsMobile,
     contentPadding: EdgeInsets.all(kSmallSpacing),
-    iconColor: colorScheme.muted,
+    iconColor: colorScheme.outline,
     disabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(kBorderRadius),
       borderSide: BorderSide(
@@ -63,3 +72,10 @@ InputDecorationTheme _inputDecorationTheme(ColorScheme colorScheme, ArgoColorThe
     ),
   );
 }
+
+TextSelectionThemeData _textSelectionThemeData(ColorScheme colorScheme, ArgoColorTheme colorTheme) =>
+    TextSelectionThemeData(
+      cursorColor: colorScheme.primary,
+      selectionColor: colorTheme.textSelectionColor(colorScheme.brightness),
+      selectionHandleColor: colorScheme.secondary,
+    );

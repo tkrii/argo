@@ -10,7 +10,7 @@ SliderThemeData _sliderThemeData(
     inactiveTrackColor: inactiveTrack,
     thumbColor: colorTheme.primaryBackground(colorScheme.brightness),
     disabledThumbColor: colorScheme.secondary,
-    disabledActiveTrackColor: inactiveTrack,
-    disabledInactiveTrackColor: inactiveTrack,
+    disabledActiveTrackColor: _disabled(inactiveTrack),
+    disabledInactiveTrackColor: _disabled(inactiveTrack),
   );
 }

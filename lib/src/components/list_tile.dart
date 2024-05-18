@@ -7,13 +7,22 @@ ListTileThemeData _listTileThemeData(ColorScheme colorScheme) {
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(kBorderRadius),
     ),
-    selectedColor: colorScheme.onSecondary,
+    selectedColor: colorScheme.secondary.foregroundBrightColor,
     selectedTileColor: colorScheme.secondary,
     titleTextStyle: textStyle,
     subtitleTextStyle: textStyle.copyWith(
-      color: colorScheme.muted,
+      color: colorScheme.outlineVariant,
       fontSize: 0.75 * rem,
     ),
-    iconColor: colorScheme.muted,
+    leadingAndTrailingTextStyle: textStyle.copyWith(
+      color: colorScheme.outlineVariant,
+      fontSize: 0.75 * rem,
+    ),
+    iconColor: colorScheme.outlineVariant,
   );
 }
+
+IconThemeData _iconThemeData(ColorScheme colorScheme) => IconThemeData(
+      size: 1.5 * rem,
+      color: colorScheme.outlineVariant,
+    );
