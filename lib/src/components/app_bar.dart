@@ -1,8 +1,8 @@
-part of '../themes/scheme.dart';
+part of '../themes/scheme_theme.dart';
 
 AppBarTheme _appBarTheme(ColorScheme colorScheme) => AppBarTheme(
-      foregroundColor: colorScheme.isLight ? ArgoColors.black : ArgoColors.white,
-      backgroundColor: colorScheme.surfaceContainerLow,
+      foregroundColor: colorScheme.onSurface,
+      backgroundColor: colorScheme.surfaceContainerHigh,
       shape: Border(
         bottom: BorderSide(
           color: colorScheme.outline,
@@ -10,9 +10,9 @@ AppBarTheme _appBarTheme(ColorScheme colorScheme) => AppBarTheme(
         ),
       ),
       iconTheme: _iconThemeData(colorScheme).copyWith(
-        color: colorScheme.surface.foregroundBrightColor,
+        color: colorScheme.onSurface,
       ),
-      elevation: 1,
+      elevation: 0,
       centerTitle: true,
       systemOverlayStyle: colorScheme.isLight
           ? SystemUiOverlayStyle.light.copyWith(

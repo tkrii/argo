@@ -1,4 +1,4 @@
-part of '../themes/scheme.dart';
+part of '../themes/scheme_theme.dart';
 
 TooltipThemeData _tooltipTheme(ColorScheme colorScheme) {
   return TooltipThemeData(

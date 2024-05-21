@@ -1,7 +1,7 @@
-part of '../themes/scheme.dart';
+part of '../themes/scheme_theme.dart';
 
 BadgeThemeData _badgeThemeData(ColorScheme colorScheme) => BadgeThemeData(
       backgroundColor: colorScheme.tertiary,
-      textColor: colorScheme.tertiary.foregroundBrightColor,
+      textColor: colorScheme.onTertiary,
       smallSize: rem,
     );

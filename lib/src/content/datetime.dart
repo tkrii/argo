@@ -1,15 +1,15 @@
-part of '../themes/scheme.dart';
+part of '../themes/scheme_theme.dart';
 
-DatePickerThemeData _datePickerThemeData(ColorScheme colorScheme, ArgoColorTheme colorTheme) => DatePickerThemeData(
+DatePickerThemeData _datePickerThemeData(ColorScheme colorScheme) => DatePickerThemeData(
       backgroundColor: colorScheme.surfaceContainer,
-      elevation: 5,
+      elevation: 4,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(kBorderRadius),
       ),
-      headerBackgroundColor: colorScheme.surfaceContainerLow,
-      headerForegroundColor: colorScheme.surfaceContainerLow.foregroundBrightColor,
+      headerBackgroundColor: colorScheme.surfaceContainerHigh,
+      headerForegroundColor: colorScheme.onSurface,
       dividerColor: colorScheme.outline,
-      inputDecorationTheme: _inputDecorationTheme(colorScheme, colorTheme),
+      inputDecorationTheme: _inputDecorationTheme(colorScheme),
       cancelButtonStyle: ButtonStyle(
         backgroundColor: WidgetStateColor.transparent,
         foregroundColor: WidgetStatePropertyAll(
@@ -21,39 +21,39 @@ DatePickerThemeData _datePickerThemeData(ColorScheme colorScheme, ArgoColorTheme
       ).merge(_commonButtonStye),
     );
 
-TimePickerThemeData _timePickerThemeData(ColorScheme colorScheme, ArgoColorTheme colorTheme) => TimePickerThemeData(
+TimePickerThemeData _timePickerThemeData(ColorScheme colorScheme) => TimePickerThemeData(
       backgroundColor: colorScheme.surfaceContainer,
-      elevation: 5,
+      elevation: 4,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(kBorderRadius),
       ),
       dayPeriodTextColor: WidgetStateColor.resolveWith(
         (state) {
           if (state.contains(WidgetState.selected)) {
-            return colorScheme.secondary.foregroundBrightColor;
+            return colorScheme.onTertiary;
           }
-          return colorScheme.surfaceContainerLow.foregroundColor;
+          return colorScheme.onSurface;
         },
       ),
       dayPeriodColor: WidgetStateColor.resolveWith(
         (state) {
           if (state.contains(WidgetState.selected)) {
-            return colorScheme.secondary;
+            return colorScheme.tertiary;
           }
-          return colorScheme.surfaceContainerLow;
+          return colorScheme.surfaceContainerHighest;
         },
       ),
       dayPeriodShape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(kBorderRadius),
       ),
       dialBackgroundColor: colorScheme.surfaceContainerLow,
-      dialHandColor: colorTheme.primary(colorScheme.brightness),
+      dialHandColor: colorScheme.primary,
       dialTextColor: WidgetStateColor.resolveWith(
         (state) {
           if (state.contains(WidgetState.selected)) {
-            return colorTheme.primaryUnderline(colorScheme.brightness).foregroundBrightColor;
+            return colorScheme.onPrimary;
           }
-          return colorScheme.surfaceContainerLow.foregroundColor;
+          return colorScheme.onSurface;
         },
       ),
       hourMinuteShape: RoundedRectangleBorder(
@@ -63,20 +63,20 @@ TimePickerThemeData _timePickerThemeData(ColorScheme colorScheme, ArgoColorTheme
       hourMinuteColor: WidgetStateColor.resolveWith(
         (state) {
           if (state.contains(WidgetState.selected)) {
-            return colorTheme.primaryBackground(colorScheme.brightness);
+            return colorScheme.secondary;
           }
-          return colorScheme.surfaceContainerLow;
+          return colorScheme.surfaceContainerHighest;
         },
       ),
       hourMinuteTextColor: WidgetStateColor.resolveWith(
         (state) {
           if (state.contains(WidgetState.selected)) {
-            return colorTheme.primaryBackground(colorScheme.brightness).foregroundBrightColor;
+            return colorScheme.onSecondary;
           }
           return colorScheme.onSurface;
         },
       ),
-      inputDecorationTheme: _inputDecorationTheme(colorScheme, colorTheme),
+      inputDecorationTheme: _inputDecorationTheme(colorScheme),
       cancelButtonStyle: ButtonStyle(
         backgroundColor: WidgetStateColor.transparent,
         foregroundColor: WidgetStatePropertyAll(

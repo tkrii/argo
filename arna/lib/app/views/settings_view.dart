@@ -56,9 +56,8 @@ class SettingsView extends GetView<BaseController> {
                                   : const PhosphorIcon(PhosphorIconsDuotone.circle),
                               onPressed: () => controller.variant.value = av,
                               style: IconButton.styleFrom(
-                                backgroundColor: av.argoColor,
-                                foregroundColor:
-                                    controller.variant.value == av ? av.argoColor.foregroundColor : av.argoColor,
+                                backgroundColor: av.accent,
+                                foregroundColor: controller.variant.value == av ? av.accent.foreground : av.accent,
                               ),
                             ),
                           ),

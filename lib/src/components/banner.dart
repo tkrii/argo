@@ -1,7 +1,7 @@
-part of '../themes/scheme.dart';
+part of '../themes/scheme_theme.dart';
 
 MaterialBannerThemeData _materialBannerThemeData(ColorScheme colorScheme) => MaterialBannerThemeData(
-      backgroundColor: colorScheme.surfaceContainerLow,
+      backgroundColor: colorScheme.surfaceContainerHigh,
       dividerColor: colorScheme.outline,
       elevation: 0,
     );

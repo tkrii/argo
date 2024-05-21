@@ -1,16 +1,18 @@
-part of '../themes/scheme.dart';
+part of '../themes/scheme_theme.dart';
 
 SliderThemeData _sliderThemeData(
   ColorScheme colorScheme,
-  ArgoColorTheme colorTheme,
 ) {
-  Color inactiveTrack = colorScheme.isLight ? ArgoColors.slate.shade100 : ArgoColors.slate.shade850;
   return SliderThemeData(
-    activeTrackColor: inactiveTrack,
-    inactiveTrackColor: inactiveTrack,
-    thumbColor: colorTheme.primaryBackground(colorScheme.brightness),
-    disabledThumbColor: colorScheme.secondary,
-    disabledActiveTrackColor: _disabled(inactiveTrack),
-    disabledInactiveTrackColor: _disabled(inactiveTrack),
+    activeTrackColor: colorScheme.primary,
+    inactiveTrackColor: colorScheme.inverseSurface.mix(colorScheme.surface, 10),
+    thumbColor: ArgoColors.white,
+    disabledThumbColor: colorScheme.inverseSurface.mix(colorScheme.surface, 10),
+    disabledActiveTrackColor: _disabled(
+      colorScheme.primary,
+    ),
+    disabledInactiveTrackColor: _disabled(
+      colorScheme.inverseSurface.mix(colorScheme.surface, 10),
+    ),
   );
 }

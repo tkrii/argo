@@ -1,23 +1,14 @@
-part of '../themes/scheme.dart';
+part of '../themes/scheme_theme.dart';
 
-InputDecorationTheme _inputDecorationTheme(ColorScheme colorScheme, ArgoColorTheme colorTheme) {
+InputDecorationTheme _inputDecorationTheme(ColorScheme colorScheme) {
   TextStyle textStyle = createTextTheme(colorScheme.onSurface).bodySmall!.copyWith(
-        color: colorScheme.surfaceContainerLowest.foregroundBrightColor,
+        color: colorScheme.onSurface,
       );
 
   return InputDecorationTheme(
-    labelStyle: WidgetStateTextStyle.resolveWith((state) {
-      if (state.contains(WidgetState.disabled)) {
-        textStyle.copyWith(
-          color: _disabled(
-            colorScheme.surfaceContainerLowest.foregroundColor,
-          ),
-        );
-      }
-      return textStyle;
-    }),
+    labelStyle: textStyle,
     filled: true,
-    fillColor: colorScheme.surfaceContainerLowest,
+    fillColor: colorScheme.surfaceContainerHighest,
     floatingLabelStyle: createTextTheme(colorScheme.onSurface).labelLarge!,
     helperStyle: createTextTheme(colorScheme.onSurface).bodySmall!,
     helperMaxLines: 3,
@@ -30,52 +21,68 @@ InputDecorationTheme _inputDecorationTheme(ColorScheme colorScheme, ArgoColorThe
     errorMaxLines: 3,
     isDense: !kIsMobile,
     contentPadding: EdgeInsets.all(kSmallSpacing),
-    iconColor: colorScheme.outline,
-    disabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(kBorderRadius),
+    iconColor: colorScheme.onSurface.scale(alpha: -0.2),
+    disabledBorder: UnderlineInputBorder(
+      borderRadius: BorderRadius.only(
+        topRight: Radius.circular(kBorderRadius),
+        topLeft: Radius.circular(kBorderRadius),
+      ),
       borderSide: BorderSide(
         width: kBorderWidth,
-        color: _disabled(colorScheme.isDark ? ArgoColors.slate.shade800 : ArgoColors.slate.shade150),
+        color: _disabled(
+          colorScheme.inverseSurface.mix(colorScheme.surface, 75),
+        ),
       ),
     ),
-    enabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(kBorderRadius),
+    enabledBorder: UnderlineInputBorder(
+      borderRadius: BorderRadius.only(
+        topRight: Radius.circular(kBorderRadius),
+        topLeft: Radius.circular(kBorderRadius),
+      ),
       borderSide: BorderSide(
         width: kBorderWidth,
-        color: colorScheme.isDark ? ArgoColors.slate.shade800 : ArgoColors.slate.shade150,
+        color: colorScheme.inverseSurface.mix(colorScheme.surface, 75),
       ),
     ),
-    errorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(kBorderRadius),
+    errorBorder: UnderlineInputBorder(
+      borderRadius: BorderRadius.only(
+        topRight: Radius.circular(kBorderRadius),
+        topLeft: Radius.circular(kBorderRadius),
+      ),
       borderSide: BorderSide(
         width: kBorderWidth,
         color: colorScheme.errorContainer,
       ),
     ),
-    focusedErrorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(kBorderRadius),
+    focusedErrorBorder: UnderlineInputBorder(
+      borderRadius: BorderRadius.only(
+        topRight: Radius.circular(kBorderRadius),
+        topLeft: Radius.circular(kBorderRadius),
+      ),
       borderSide: BorderSide(
         width: kBorderOutline,
         color: colorScheme.error,
       ),
     ),
-    focusedBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(kBorderRadius),
+    focusedBorder: UnderlineInputBorder(
+      borderRadius: BorderRadius.only(
+        topRight: Radius.circular(kBorderRadius),
+        topLeft: Radius.circular(kBorderRadius),
+      ),
       borderSide: BorderSide(
         width: kBorderOutline,
-        color: colorTheme.primaryUnderline(colorScheme.brightness),
+        color: colorScheme.tertiary,
       ),
     ),
     activeIndicatorBorder: BorderSide(
-      color: colorTheme.primaryUnderline(colorScheme.brightness),
-      width: kBorderWidth,
+      color: colorScheme.primary,
+      width: kBorderOutline,
     ),
   );
 }
 
-TextSelectionThemeData _textSelectionThemeData(ColorScheme colorScheme, ArgoColorTheme colorTheme) =>
-    TextSelectionThemeData(
+TextSelectionThemeData _textSelectionThemeData(ColorScheme colorScheme) => TextSelectionThemeData(
       cursorColor: colorScheme.primary,
-      selectionColor: colorTheme.textSelectionColor(colorScheme.brightness),
-      selectionHandleColor: colorScheme.secondary,
+      selectionColor: (colorScheme.primary.mix(colorScheme.surface)).scale(alpha: -0.5),
+      selectionHandleColor: colorScheme.tertiary,
     );

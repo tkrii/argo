@@ -1,38 +1,32 @@
 import 'package:argo/argo.dart';
-import 'package:argo/src/themes/dark.dart';
-import 'package:argo/src/themes/light.dart';
-import 'package:argo/src/themes/theme_colors.dart';
-import 'package:flutter/material.dart';
+import 'package:argo/src/themes/dark_theme.dart';
+import 'package:argo/src/themes/light_theme.dart';
+import 'package:flutter/material.dart' show ThemeData;
 
 enum ArgoVariant {
-  red(ArgoColors.red),
-  pink(ArgoColors.pink),
-  fuchsia(ArgoColors.fuchsia),
-  purple(ArgoColors.purple),
-  violet(ArgoColors.violet),
-  indigo(ArgoColors.indigo),
   blue(ArgoColors.blue),
-  azure(ArgoColors.azure),
-  cyan(ArgoColors.cyan),
-  jade(ArgoColors.jade),
   green(ArgoColors.green),
-  lime(ArgoColors.lime),
   yellow(ArgoColors.yellow),
-  amber(ArgoColors.amber),
-  pumpkin(ArgoColors.pumpkin),
   orange(ArgoColors.orange),
-  sand(ArgoColors.sand),
-  grey(ArgoColors.grey),
-  zinc(ArgoColors.zinc),
-  slate(ArgoColors.slate);
+  red(ArgoColors.red),
+  purple(ArgoColors.purple),
+  brown(ArgoColors.brown);
 
-  const ArgoVariant(this.argoColor);
-  final MaterialColor argoColor;
+  const ArgoVariant(this.accent);
+  final ArgoAccentColor accent;
 
   ThemeData get themeDark => createArgoDarkTheme(
-        theme: ArgoColorTheme.fromArgoColor(argoColor),
+        accent: accent,
       );
   ThemeData get theme => createArgoLightTheme(
-        theme: ArgoColorTheme.fromArgoColor(argoColor),
+        accent: accent,
+      );
+  ThemeData get highContrastDark => createArgoDarkTheme(
+        accent: accent,
+        highContrast: true,
+      );
+  ThemeData get highContrastLight => createArgoLightTheme(
+        accent: accent,
+        highContrast: true,
       );
 }

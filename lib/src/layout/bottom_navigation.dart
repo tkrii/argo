@@ -1,4 +1,4 @@
-part of '../themes/scheme.dart';
+part of '../themes/scheme_theme.dart';
 
 BottomAppBarTheme _bottomAppBarTheme(ColorScheme colorScheme) => BottomAppBarTheme(
       color: colorScheme.surfaceContainerLow,
@@ -6,7 +6,7 @@ BottomAppBarTheme _bottomAppBarTheme(ColorScheme colorScheme) => BottomAppBarThe
 
 BottomNavigationBarThemeData _bottomNavigationTheme(ColorScheme colorScheme) {
   return BottomNavigationBarThemeData(
-    elevation: 6,
+    elevation: 5,
     backgroundColor: colorScheme.surfaceContainerLow,
     selectedItemColor: colorScheme.primary,
     unselectedItemColor: colorScheme.onSurface,
@@ -15,20 +15,16 @@ BottomNavigationBarThemeData _bottomNavigationTheme(ColorScheme colorScheme) {
 
 NavigationBarThemeData _navigationBarTheme(ColorScheme colorScheme) {
   return NavigationBarThemeData(
-    elevation: 6,
+    elevation: 5,
     backgroundColor: colorScheme.surfaceContainerLow,
     indicatorColor: colorScheme.surfaceContainerLowest,
     indicatorShape: RoundedRectangleBorder(
-      side: BorderSide(
-        color: colorScheme.outline,
-        width: kBorderOutline,
-      ),
       borderRadius: BorderRadius.circular(kBorderRadius),
     ),
     iconTheme: WidgetStateProperty.resolveWith(
       (states) => states.contains(WidgetState.selected)
-          ? IconThemeData(color: colorScheme.primary)
-          : IconThemeData(color: colorScheme.onSurface),
+          ? IconThemeData(color: colorScheme.onSurface)
+          : IconThemeData(color: colorScheme.onSurface.withOpacity(0.6)),
     ),
   );
 }

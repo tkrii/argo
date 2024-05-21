@@ -1,4 +1,4 @@
-part of '../themes/scheme.dart';
+part of '../themes/scheme_theme.dart';
 
 DrawerThemeData _drawerTheme(ColorScheme colorScheme) {
   return DrawerThemeData(
@@ -29,8 +29,10 @@ NavigationDrawerThemeData _navigationDrawerTheme(ColorScheme colorScheme) {
     ),
     iconTheme: WidgetStateProperty.resolveWith(
       (states) => states.contains(WidgetState.selected)
-          ? IconThemeData(color: colorScheme.primary)
-          : IconThemeData(color: colorScheme.onSurface),
+          ? IconThemeData(color: colorScheme.onSurface)
+          : IconThemeData(
+              color: colorScheme.onSurface.withOpacity(0.6),
+            ),
     ),
   );
 }

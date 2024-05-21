@@ -88,7 +88,7 @@ class _TextStyle extends TextStyle {
     super.fontWeight,
     required this.textColor,
   }) : super(
-          fontFamily: 'Inter',
+          fontFamily: 'Open Sans',
           package: 'argo',
           color: textColor,
         );

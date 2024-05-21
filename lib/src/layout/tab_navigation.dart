@@ -1,13 +1,13 @@
-part of '../themes/scheme.dart';
+part of '../themes/scheme_theme.dart';
 
 TabBarTheme _tabBarTheme(ColorScheme colorScheme) {
   return TabBarTheme(
     indicatorColor: colorScheme.primary,
     dividerColor: colorScheme.outline,
     labelColor: colorScheme.primary,
-    unselectedLabelColor: colorScheme.onSurface,
+    unselectedLabelColor: colorScheme.onSurface.withOpacity(0.6),
     overlayColor: WidgetStateColor.resolveWith(
-      (states) => colorScheme.outlineVariant.withOpacity(1 / 3),
+      (states) => colorScheme.tertiary.withOpacity(1 / 3),
     ),
     indicatorSize: TabBarIndicatorSize.label,
   );
@@ -15,7 +15,7 @@ TabBarTheme _tabBarTheme(ColorScheme colorScheme) {
 
 NavigationRailThemeData _navigationRailThemeData(ColorScheme colorScheme) {
   return NavigationRailThemeData(
-    elevation: 6,
+    elevation: 5,
     backgroundColor: colorScheme.surfaceContainerLow,
     indicatorColor: colorScheme.surfaceContainerLowest,
     indicatorShape: RoundedRectangleBorder(
@@ -25,7 +25,9 @@ NavigationRailThemeData _navigationRailThemeData(ColorScheme colorScheme) {
       ),
       borderRadius: BorderRadius.circular(kBorderRadius),
     ),
-    selectedIconTheme: IconThemeData(color: colorScheme.primary),
-    unselectedIconTheme: IconThemeData(color: colorScheme.onSurface),
+    selectedIconTheme: IconThemeData(color: colorScheme.onSurface),
+    unselectedIconTheme: IconThemeData(
+      color: colorScheme.onSurface.withOpacity(0.6),
+    ),
   );
 }

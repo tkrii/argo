@@ -16,7 +16,7 @@ class BaseController extends GetxController {
   Rx<ThemeMode> theme = Rx(ThemeMode.system);
   RxBool railNavigation = RxBool(false);
   RxInt homeIndexNavigation = RxInt(0);
-  Rx<ArgoVariant> variant = Rx(ArgoVariant.azure);
+  Rx<ArgoVariant> variant = Rx(ArgoVariant.blue);
 
   SearchController searchController = SearchController();
 

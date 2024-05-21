@@ -30,23 +30,23 @@ dev_dependencies:
 
 flutter:
   fonts:
-    - family: Inter
+    - family: 'Open Sans'
       fonts:
-        - asset: assets/fonts/Inter-Thin.ttf
+        - asset: assets/fonts/OpenSans-VariableFont_wdth,wght.ttf
           weight: 100
-        - asset: assets/fonts/Inter-ExtraLight.ttf
+        - asset: assets/fonts/OpenSans-VariableFont_wdth,wght.ttf
           weight: 200
-        - asset: assets/fonts/Inter-Light.ttf
+        - asset: assets/fonts/OpenSans-VariableFont_wdth,wght.ttf
           weight: 300
-        - asset: assets/fonts/Inter-Regular.ttf
+        - asset: assets/fonts/OpenSans-VariableFont_wdth,wght.ttf
           weight: 400
-        - asset: assets/fonts/Inter-Medium.ttf
+        - asset: assets/fonts/OpenSans-VariableFont_wdth,wght.ttf
           weight: 500
-        - asset: assets/fonts/Inter-SemiBold.ttf
+        - asset: assets/fonts/OpenSans-VariableFont_wdth,wght.ttf
           weight: 600
-        - asset: assets/fonts/Inter-Bold.ttf
+        - asset: assets/fonts/OpenSans-VariableFont_wdth,wght.ttf
           weight: 700
-        - asset: assets/fonts/Inter-ExtraBold.ttf
+        - asset: assets/fonts/OpenSans-VariableFont_wdth,wght.ttf
           weight: 800
-        - asset: assets/fonts/Inter-Black.ttf
+        - asset: assets/fonts/OpenSans-VariableFont_wdth,wght.ttf
           weight: 900

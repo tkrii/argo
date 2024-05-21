@@ -1,6 +1,5 @@
 import 'package:argo/argo.dart';
 import 'package:flutter/material.dart';
-import 'package:get/state_manager.dart';
 
 const _gridDelegate = SliverGridDelegateWithMaxCrossAxisExtent(
   maxCrossAxisExtent: 300,
@@ -102,15 +101,15 @@ class ColorsView extends StatelessWidget {
             Text(
               colorName,
               style: TextStyle(
-                color: (backgroundColor).foregroundBrightColor,
-                fontSize: 11,
+                color: (backgroundColor).foreground,
+                fontSize: 12,
               ),
             ),
             Text(
-              backgroundColor.toString().replaceAll('Color(0x', '#').replaceAll(')', ''),
+              (Color(backgroundColor.value)).toString().replaceAll('Color(0x', '#').replaceAll(')', ''),
               style: TextStyle(
-                color: (backgroundColor).foregroundColor,
-                fontSize: 8,
+                color: (backgroundColor).foreground.scale(alpha: -0.2),
+                fontSize: 10,
               ),
             ),
           ],
@@ -142,6 +141,10 @@ Map<String, (Color, Color?)> _getSpecialColors(ThemeData theme) {
     'onError': (s.onError, null),
     'shadow': (s.shadow, null),
     'scrim': (s.scrim, null),
+    'link': (s.link, null),
+    'success': (s.success, null),
+    'warning': (s.warning, null),
+    'destructive': (s.destructive, null),
   };
   return colors;
 }
@@ -150,9 +153,9 @@ Map<String, (Color, Color?)> _getAccentColors(ThemeData theme) {
   final s = theme.colorScheme;
 
   final colors = <String, (Color, Color?)>{
+    'inversePrimary': (s.inversePrimary, null),
     'primary': (s.primary, null),
     'onPrimary': (s.onPrimary, null),
-    'inversePrimary': (s.inversePrimary, null),
     'primaryContainer': (Color(s.primaryContainer.value), null),
     'onPrimaryContainer': (s.onPrimaryContainer, null),
     'secondary': (s.secondary, s.onSecondary),
@@ -171,11 +174,11 @@ Map<String, (Color, Color?)> _getBaseColors(ThemeData theme) {
   final s = theme.colorScheme;
 
   final colors = <String, (Color, Color?)>{
+    'inverseSurface': (s.inverseSurface, s.onInverseSurface),
+    'onInverseSurface': (s.onInverseSurface, null),
     'surfaceBright': (s.surfaceBright, null),
     'surface': (s.surface, s.onSurface),
     'onSurface': (s.onSurface, null),
-    'inverseSurface': (s.inverseSurface, s.onInverseSurface),
-    'onInverseSurface': (s.onInverseSurface, null),
     'surfaceContainerHighest': (s.surfaceContainerHighest, null),
     'surfaceContainerHigh': (s.surfaceContainerHigh, null),
     'surfaceContainer': (s.surfaceContainer, s.onSurface),
@@ -186,16 +189,18 @@ Map<String, (Color, Color?)> _getBaseColors(ThemeData theme) {
 }
 
 Map<String, (Color, Color?)> _getArgoPrimaryColors(ThemeData theme) {
-  (Color, Color?) getColor(ArgoVariant variant) =>
-      (Color(variant.argoColor.value), variant.argoColor.foregroundBrightColor);
+  (Color, Color?) getColor(ArgoVariant variant) => (Color(variant.accent.value), variant.accent.foreground);
 
   Map<String, (Color, Color?)> response = {};
 
   for (ArgoVariant variant in ArgoVariant.values) {
-    response.addIf(
-      !response.keys.contains(variant.name),
-      variant.name,
-      getColor(variant),
+    response.addEntries(
+      [
+        MapEntry(
+          variant.name,
+          getColor(variant),
+        ),
+      ],
     );
   }
 

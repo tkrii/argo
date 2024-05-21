@@ -1,12 +1,11 @@
-part of '../themes/scheme.dart';
+part of '../themes/scheme_theme.dart';
 
 ProgressIndicatorThemeData _progressIndicatorThemeData(
   ColorScheme colorScheme,
-  ArgoColorTheme colorTheme,
 ) {
-  Color background = colorScheme.isLight ? ArgoColors.slate.shade100 : ArgoColors.slate.shade850;
+  Color background = colorScheme.inverseSurface.mix(colorScheme.surface, 10);
   return ProgressIndicatorThemeData(
-    color: colorTheme.primaryBackground(colorScheme.brightness),
+    color: colorScheme.primary,
     linearTrackColor: background,
     circularTrackColor: background,
     refreshBackgroundColor: colorScheme.surfaceContainer,

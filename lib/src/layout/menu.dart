@@ -1,8 +1,8 @@
-part of '../themes/scheme.dart';
+part of '../themes/scheme_theme.dart';
 
 MenuStyle _menuStyle(ColorScheme colorScheme) => MenuStyle(
       backgroundColor: WidgetStatePropertyAll(
-        colorScheme.surfaceContainerLow,
+        colorScheme.surfaceContainer,
       ),
       shape: WidgetStatePropertyAll(
         RoundedRectangleBorder(

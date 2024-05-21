@@ -17,7 +17,7 @@ FutureOr<Iterable<Widget>> searchView(BuildContext context, SearchController sea
         title: Text('Argo Variant ${e.name.capitalize}'),
         leading: PhosphorIcon(
           PhosphorIconsFill.swatches,
-          color: e.argoColor,
+          color: e.accent,
         ),
         onTap: () {
           BaseController controller = Get.find(

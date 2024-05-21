@@ -1,77 +1,44 @@
-import 'package:argo/argo.dart';
-import 'package:flutter/material.dart' show Brightness, Color, ColorScheme, ColorSwatch, HSLColor;
+import 'dart:ui';
+import 'package:argo/src/colors/index.dart';
+import 'package:flutter/rendering.dart' show HSLColor;
 
-extension BrightnessInverse on Brightness {
-  Brightness get inverse => this == Brightness.light ? Brightness.dark : Brightness.light;
-}
+extension ArgoColorUtils on Color {
+  int get _brightnessValue =>
+      (((red * 299) + (green * 587) + (blue * 114)) / 1000).round();
 
-extension Utils on Color {
-  /// Calculate color int brightness
-  /// Color brightness is determinate by the following formula:
-  /// ((Red value X 299) + (Green value X 587) + (Blue value X 114)) / 1000
-  int get _brightnessValue => (((red * 299) + (green * 587) + (blue * 114)) / 1000).round();
-
+  /// [Brightness] of this color.
   Brightness get brightness =>
-      (_brightnessValue) >= (ArgoColors.white._brightnessValue / 2) ? Brightness.light : Brightness.dark;
+      (_brightnessValue) >= (ArgoColors.white._brightnessValue / 2)
+          ? Brightness.light
+          : Brightness.dark;
 
-  Color get foregroundColor => brightness == Brightness.dark ? ArgoColors.zinc.shade200 : ArgoColors.zinc.shade750;
-  Color get foregroundBrightColor => brightness == Brightness.dark ? ArgoColors.white : ArgoColors.black;
+  Color applyHighContrast(bool highContrast)=> highContrast?(brightness == Brightness.dark ? ArgoColors.black : ArgoColors.white):this;
 
-  ///Sass mix() colors
+  /// [Color] of text on this color.
+  Color get foreground => brightness == Brightness.dark
+      ? ArgoColors.white
+      : ArgoColors.black.scale(alpha: -0.2);
+
+  /// Combine this [Color] with received [Color]
   Color mix(Color other, [int weight = 50]) {
     assert(weight >= 0 && weight <= 100);
     int weightDifference = 100 - weight;
-    int newRed = ((red * weight / 100) + (other.red * weightDifference / 100)).round();
-    int newGreen = ((green * weight / 100) + (other.green * weightDifference / 100)).round();
-    int newBlue = ((blue * weight / 100) + (other.blue * weightDifference / 100)).round();
-    int newAlpha = ((alpha * weight / 100) + (other.alpha * weightDifference / 100)).round();
+    int newRed =
+        ((red * weight / 100) + (other.red * weightDifference / 100)).round();
+    int newGreen =
+        ((green * weight / 100) + (other.green * weightDifference / 100))
+            .round();
+    int newBlue =
+        ((blue * weight / 100) + (other.blue * weightDifference / 100)).round();
+    int newAlpha =
+        ((alpha * weight / 100) + (other.alpha * weightDifference / 100))
+            .round();
     return Color.fromARGB(newAlpha, newRed, newGreen, newBlue);
   }
-}
 
-extension AsMaterialColor on ColorSwatch<int> {
-  Color get shade50 => this[50]!;
-  Color get shade100 => this[100]!;
-  Color get shade150 => this[150]!;
-  Color get shade200 => this[200]!;
-  Color get shade250 => this[250]!;
-  Color get shade300 => this[300]!;
-  Color get shade350 => this[350]!;
-  Color get shade400 => this[400]!;
-  Color get shade450 => this[450]!;
-  Color get shade500 => this[500]!;
-  Color get shade550 => this[550]!;
-  Color get shade600 => this[600]!;
-  Color get shade650 => this[650]!;
-  Color get shade700 => this[700]!;
-  Color get shade750 => this[750]!;
-  Color get shade800 => this[800]!;
-  Color get shade850 => this[850]!;
-  Color get shade900 => this[900]!;
-  Color get shade950 => this[950]!;
-}
-
-/// Argo-specific color scheme extensions.
-extension ArgoColorSchemeExtension on ColorScheme {
-  /// A color to subtitles or unselected [Icon]/[Text]
-  ///
-  /// ```dart
-  /// Theme.of(context).colorScheme.secondaryText
-  /// ```
-  ///
-  Color get muted => isDark ? ArgoColors.zinc.shade550 : ArgoColors.zinc.shade450;
-
-  /// Whether the brightness is dark.
-  bool get isDark => brightness == Brightness.dark;
-
-  /// Whether the brightness is light.
-  bool get isLight => brightness == Brightness.light;
-}
-
-/// Set of useful methodColor.fromARGB(255, 117, 115, 123)th [Color]
-extension ArgoColorExtension on Color {
-  /// Scale color attributes relatively to current ones.
-  /// [alpha], [hue], [saturation] and [lightness] values must be clamped between -1.0 and 1.0
+  /// Adjust color attributes by the given values.
+  /// [alpha], [saturation] and [lightness] values must be clamped between -1.0 and 1.0
+  /// [hue] value must be clamped between -1.0 and 1.0
   Color scale({
     double alpha = 0.0,
     double hue = 0.0,
@@ -206,15 +173,8 @@ extension ArgoColorExtension on Color {
 
     // A pure dark color have saturation level at 1.0, which results in red when lighten it.
     // We reset this value to 0.0, so the result is desaturated as expected:
-    return hslColor.withSaturation(hslColor.lightness == 0.0 ? 0.0 : hslColor.saturation);
-  }
-
-  /// Returns a hex representation (`#AARRGGBB`) of the color.
-  String toHex() {
-    return '#${alpha.toHex()}${red.toHex()}${green.toHex()}${blue.toHex()}';
+    return hslColor
+        .withSaturation(hslColor.lightness == 0.0 ? 0.0 : hslColor.saturation);
   }
 }
 
-extension on int {
-  String toHex() => toRadixString(16).padLeft(2, '0');
-}

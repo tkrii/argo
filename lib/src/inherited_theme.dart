@@ -1,4 +1,4 @@
-import 'package:argo/argo.dart' show ArgoVariant, argoHighContrastDark, argoHighContrastLight;
+import 'package:argo/argo.dart' show ArgoVariant;
 import 'package:collection/collection.dart' show IterableEquality;
 import 'package:flutter/foundation.dart'
     show DiagnosticPropertiesBuilder, Diagnosticable, DiagnosticsProperty, IterableProperty;
@@ -127,7 +127,7 @@ class _ArgoThemeState extends State<ArgoTheme> {
       name = name!.substring(5);
     }
     if (name == 'Argo') {
-      return ArgoVariant.azure;
+      return ArgoVariant.blue;
     }
     for (final value in ArgoVariant.values) {
       if (value.name.toLowerCase() == name?.toLowerCase()) {
@@ -156,7 +156,7 @@ class _ArgoThemeState extends State<ArgoTheme> {
   ThemeData resolveTheme(ArgoThemeData data) {
     final dark = data.themeMode == ThemeMode.dark;
 
-    final variant = data.variant ?? ArgoVariant.azure;
+    final variant = data.variant ?? ArgoVariant.blue;
     return (dark ? variant.themeDark : variant.theme).overrideWith(data);
   }
 
@@ -213,7 +213,7 @@ class ArgoThemeData with Diagnosticable {
 
   /// The dark theme of [variant] (or [argoDark] if not available) merged with
   /// the `ArgoThemeData` overrides.
-  ThemeData? get darkTheme => (variant?.themeDark ?? ArgoVariant.azure.themeDark).overrideWith(this);
+  ThemeData? get darkTheme => (variant?.themeDark ?? ArgoVariant.blue.themeDark).overrideWith(this);
 
   /// Creates a copy of this [ArgoThemeData] with the provided values.
   ArgoThemeData copyWith({

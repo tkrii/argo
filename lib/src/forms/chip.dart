@@ -1,6 +1,6 @@
-part of '../themes/scheme.dart';
+part of '../themes/scheme_theme.dart';
 
-ChipThemeData _chipThemeData(ColorScheme colorScheme, ArgoColorTheme colorTheme) => ChipThemeData(
+ChipThemeData _chipThemeData(ColorScheme colorScheme) => ChipThemeData(
       color: WidgetStateColor.resolveWith(
         (state) {
           if (!state.contains(WidgetState.disabled)) {
@@ -8,12 +8,12 @@ ChipThemeData _chipThemeData(ColorScheme colorScheme, ArgoColorTheme colorTheme)
               return colorScheme.error;
             }
             if (state.contains(WidgetState.selected)) {
-              return colorTheme.primaryBackground(colorScheme.brightness);
+              return colorScheme.secondary;
             }
-            return colorScheme.surfaceContainer;
+            return colorScheme.surfaceContainerHighest;
           } else {
             return _disabled(
-              colorTheme.primary(colorScheme.brightness),
+              colorScheme.secondary,
             );
           }
         },

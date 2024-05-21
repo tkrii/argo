@@ -1,7 +1,6 @@
 import 'package:argo/argo.dart';
 import 'package:argo/src/themes/styles.dart';
 import 'package:argo/src/themes/text_theme.dart';
-import 'package:argo/src/themes/theme_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show SystemUiOverlayStyle;
 
@@ -37,11 +36,12 @@ ThemeData createArgoTheme(
     textTheme: createTextTheme(colorScheme.onSurface),
     scaffoldBackgroundColor: colorScheme.surface,
     brightness: colorScheme.brightness,
+    cardColor: colorScheme.surfaceContainer,
+    dialogBackgroundColor: colorScheme.surfaceContainer,
+    dividerColor: colorScheme.outlineVariant,
     expansionTileTheme: _expansionTileThemeData(colorScheme),
     cardTheme: _cardTheme(colorScheme),
-    cardColor: colorScheme.surfaceContainer,
     dialogTheme: _dialogTheme(colorScheme),
-    dialogBackgroundColor: colorScheme.surfaceContainerHigh,
     appBarTheme: _appBarTheme(colorScheme),
     progressIndicatorTheme: _progressIndicatorThemeData(colorScheme),
     sliderTheme: _sliderThemeData(colorScheme),
@@ -70,7 +70,6 @@ ThemeData createArgoTheme(
     searchViewTheme: _searchViewThemeData(colorScheme),
     toggleButtonsTheme: _toggleButtonsThemeData(colorScheme),
     chipTheme: _chipThemeData(colorScheme),
-    dividerColor: colorScheme.outlineVariant,
     datePickerTheme: _datePickerThemeData(colorScheme),
     timePickerTheme: _timePickerThemeData(colorScheme),
     tabBarTheme: _tabBarTheme(colorScheme),
@@ -80,5 +79,6 @@ ThemeData createArgoTheme(
     drawerTheme: _drawerTheme(colorScheme),
     navigationDrawerTheme: _navigationDrawerTheme(colorScheme),
     navigationRailTheme: _navigationRailThemeData(colorScheme),
+    applyElevationOverlayColor: colorScheme.isDark,
   );
 }

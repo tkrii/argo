@@ -168,7 +168,7 @@ class _ThemeButton extends StatelessWidget {
               child: Row(
                 children: [
                   ColorDisk(
-                    color: variant.argoColor,
+                    color: variant.accent,
                     selected: variant == theme.variant,
                   ),
                   Text(variant.name),

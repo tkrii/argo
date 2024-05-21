@@ -1,15 +1,15 @@
-part of '../themes/scheme.dart';
+part of '../themes/scheme_theme.dart';
 
-CheckboxThemeData _checkboxThemeData(ColorScheme colorScheme, ArgoColorTheme colorTheme) => CheckboxThemeData(
+CheckboxThemeData _checkboxThemeData(ColorScheme colorScheme) => CheckboxThemeData(
       fillColor: WidgetStateColor.resolveWith(
         (state) {
           if (state.contains(WidgetState.selected)) {
             if (state.contains(WidgetState.disabled)) {
-              return colorScheme.secondary;
+              return colorScheme.outline;
             } else if (state.contains(WidgetState.error)) {
               return colorScheme.errorContainer;
             }
-            return colorTheme.primaryBackground(colorScheme.brightness);
+            return colorScheme.primary;
           } else {
             return ArgoColors.transparent;
           }
@@ -19,11 +19,11 @@ CheckboxThemeData _checkboxThemeData(ColorScheme colorScheme, ArgoColorTheme col
         (state) {
           if (!state.contains(WidgetState.disabled)) {
             if (state.contains(WidgetState.selected)) {
-              return colorScheme.onPrimary.foregroundBrightColor;
+              return colorScheme.onPrimary;
             }
             return colorScheme.inverseSurface;
           }
-          return colorScheme.onSecondary;
+          return colorScheme.outline.mix(colorScheme.onPrimary);
         },
       ),
       shape: RoundedRectangleBorder(
@@ -31,44 +31,40 @@ CheckboxThemeData _checkboxThemeData(ColorScheme colorScheme, ArgoColorTheme col
       ),
     );
 
-RadioThemeData _radioThemeData(ColorScheme colorScheme, ArgoColorTheme colorTheme) => RadioThemeData(
+RadioThemeData _radioThemeData(ColorScheme colorScheme) => RadioThemeData(
       fillColor: WidgetStateColor.resolveWith(
         (state) {
           if (state.contains(WidgetState.selected)) {
             if (state.contains(WidgetState.disabled)) {
-              return colorScheme.secondary;
+              return colorScheme.outline;
             } else if (state.contains(WidgetState.error)) {
               return colorScheme.errorContainer;
             } else {
-              return colorTheme.primaryBackground(colorScheme.brightness);
+              return colorScheme.primary;
             }
           } else if (state.contains(WidgetState.disabled)) {
-            return colorScheme.outlineVariant.mix(colorScheme.outline);
+            return colorScheme.outline.mix(colorScheme.onPrimary);
           } else {
-            return colorScheme.surface.foregroundBrightColor;
+            return colorScheme.onSurface;
           }
         },
       ),
     );
 
-SwitchThemeData _switchThemeData(ColorScheme colorScheme, ArgoColorTheme colorTheme) => SwitchThemeData(
-      thumbColor: WidgetStateColor.resolveWith((state) {
-        Color color = colorScheme.secondary;
+SwitchThemeData _switchThemeData(ColorScheme colorScheme) => SwitchThemeData(
+      trackColor: WidgetStateColor.resolveWith((state) {
+        Color color = colorScheme.onSurface.mix(colorScheme.surfaceBright);
         if (state.contains(WidgetState.selected)) {
-          color = colorTheme.primaryInverse(colorScheme.brightness);
+          color = colorScheme.success;
         }
         if (state.contains(WidgetState.disabled)) {
-          color = _disabled(colorScheme.secondary);
+          color = _disabled(color);
         }
         return color;
       }),
-      trackColor: WidgetStateColor.resolveWith(
+      thumbColor: WidgetStateColor.resolveWith(
         (state) {
-          Color color = colorTheme.primaryBackground(colorScheme.brightness);
-
-          if (!state.contains(WidgetState.selected) || state.contains(WidgetState.disabled)) {
-            color = colorScheme.isLight ? ArgoColors.slate.shade200 : ArgoColors.slate.shade750;
-          }
+          Color color = ArgoColors.white;
           if (state.contains(WidgetState.disabled)) {
             color = _disabled(color);
           }
