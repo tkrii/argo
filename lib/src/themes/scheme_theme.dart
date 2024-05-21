@@ -1,0 +1,84 @@
+import 'package:argo/argo.dart';
+import 'package:argo/src/themes/styles.dart';
+import 'package:argo/src/themes/text_theme.dart';
+import 'package:argo/src/themes/theme_colors.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show SystemUiOverlayStyle;
+
+part '../components/app_bar.dart';
+part '../components/banner.dart';
+part '../components/card.dart';
+part '../components/dropdrown.dart';
+part '../components/expansion_list_tile.dart';
+part '../components/list_tile.dart';
+part '../components/progress.dart';
+part '../components/tooltip.dart';
+part '../content/buttons.dart';
+part '../content/datetime.dart';
+part '../content/dialog.dart';
+part '../forms/badge.dart';
+part '../forms/buttons.dart';
+part '../forms/chip.dart';
+part '../forms/field.dart';
+part '../forms/search.dart';
+part '../forms/slider.dart';
+part '../layout/bottom_navigation.dart';
+part '../layout/drawer_navigation.dart';
+part '../layout/menu.dart';
+part '../layout/tab_navigation.dart';
+
+ThemeData createArgoTheme(
+  ColorScheme colorScheme,
+) {
+  return ThemeData.from(
+    colorScheme: colorScheme,
+    useMaterial3: true,
+  ).copyWith(
+    textTheme: createTextTheme(colorScheme.onSurface),
+    scaffoldBackgroundColor: colorScheme.surface,
+    brightness: colorScheme.brightness,
+    expansionTileTheme: _expansionTileThemeData(colorScheme),
+    cardTheme: _cardTheme(colorScheme),
+    cardColor: colorScheme.surfaceContainer,
+    dialogTheme: _dialogTheme(colorScheme),
+    dialogBackgroundColor: colorScheme.surfaceContainerHigh,
+    appBarTheme: _appBarTheme(colorScheme),
+    progressIndicatorTheme: _progressIndicatorThemeData(colorScheme),
+    sliderTheme: _sliderThemeData(colorScheme),
+    tooltipTheme: _tooltipTheme(colorScheme),
+    filledButtonTheme: _filledButtonThemeData(colorScheme),
+    outlinedButtonTheme: _outlinedButtonThemeData(colorScheme),
+    elevatedButtonTheme: _elevatedButtonThemeData(colorScheme),
+    floatingActionButtonTheme: _floatingActionButtonThemeData(colorScheme),
+    textButtonTheme: _textButtonThemeData(colorScheme),
+    checkboxTheme: _checkboxThemeData(colorScheme),
+    radioTheme: _radioThemeData(colorScheme),
+    switchTheme: _switchThemeData(colorScheme),
+    inputDecorationTheme: _inputDecorationTheme(colorScheme),
+    textSelectionTheme: _textSelectionThemeData(colorScheme),
+    bannerTheme: _materialBannerThemeData(colorScheme),
+    badgeTheme: _badgeThemeData(colorScheme),
+    listTileTheme: _listTileThemeData(colorScheme),
+    snackBarTheme: _snackBarThemeData(colorScheme),
+    menuTheme: _menuThemeData(colorScheme),
+    menuBarTheme: _menuBarThemeData(colorScheme),
+    menuButtonTheme: _menuButtonThemeData(colorScheme),
+    dropdownMenuTheme: _dropdownMenuThemeData(colorScheme),
+    popupMenuTheme: _popupMenuThemeData(colorScheme),
+    segmentedButtonTheme: _segmentedButtonThemeData(colorScheme),
+    searchBarTheme: _searchBarThemeData(colorScheme),
+    searchViewTheme: _searchViewThemeData(colorScheme),
+    toggleButtonsTheme: _toggleButtonsThemeData(colorScheme),
+    chipTheme: _chipThemeData(colorScheme),
+    dividerColor: colorScheme.outlineVariant,
+    datePickerTheme: _datePickerThemeData(colorScheme),
+    timePickerTheme: _timePickerThemeData(colorScheme),
+    tabBarTheme: _tabBarTheme(colorScheme),
+    bottomAppBarTheme: _bottomAppBarTheme(colorScheme),
+    bottomNavigationBarTheme: _bottomNavigationTheme(colorScheme),
+    navigationBarTheme: _navigationBarTheme(colorScheme),
+    drawerTheme: _drawerTheme(colorScheme),
+    navigationDrawerTheme: _navigationDrawerTheme(colorScheme),
+    navigationRailTheme: _navigationRailThemeData(colorScheme),
+  );
+}
