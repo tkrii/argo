@@ -1,3 +1,3 @@
-## 0.0.1
+## 1.2.0
 
-* TODO: Describe initial release.
+* Modified theme to implement view of **Libadwaita**
