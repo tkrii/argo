@@ -14,9 +14,9 @@ SearchBarThemeData _searchBarThemeData(ColorScheme colorScheme) {
     backgroundColor: WidgetStateProperty.resolveWith(
       (state) {
         if (state.contains(WidgetState.disabled)) {
-          return _disabled(colorScheme.surfaceContainerLowest);
+          return _disabled(colorScheme.surfaceContainerHighest);
         } else {
-          return colorScheme.surfaceContainerLowest;
+          return colorScheme.surfaceContainerHighest;
         }
       },
     ),
