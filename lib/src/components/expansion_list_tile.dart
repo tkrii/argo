@@ -6,7 +6,7 @@ ExpansionTileThemeData _expansionTileThemeData(
     ExpansionTileThemeData(
       textColor: colorScheme.primary,
       collapsedTextColor: colorScheme.onSurface,
-      iconColor: colorScheme.onSurface,
+      iconColor: colorScheme.tertiary,
       collapsedIconColor: colorScheme.onSurface.adjust(alpha: 0.6),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(kBorderRadius),

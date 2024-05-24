@@ -1,6 +1,7 @@
 part of '../themes/scheme_theme.dart';
 
-DatePickerThemeData _datePickerThemeData(ColorScheme colorScheme) => DatePickerThemeData(
+DatePickerThemeData _datePickerThemeData(ColorScheme colorScheme) =>
+    DatePickerThemeData(
       backgroundColor: colorScheme.surfaceContainer,
       elevation: 4,
       shape: RoundedRectangleBorder(
@@ -18,10 +19,11 @@ DatePickerThemeData _datePickerThemeData(ColorScheme colorScheme) => DatePickerT
         overlayColor: WidgetStatePropertyAll(
           colorScheme.error.scale(alpha: -0.9),
         ),
-      ).merge(_commonButtonStye),
+      ).merge(_commonButtonStyle),
     );
 
-TimePickerThemeData _timePickerThemeData(ColorScheme colorScheme) => TimePickerThemeData(
+TimePickerThemeData _timePickerThemeData(ColorScheme colorScheme) =>
+    TimePickerThemeData(
       backgroundColor: colorScheme.surfaceContainer,
       elevation: 4,
       shape: RoundedRectangleBorder(
@@ -85,5 +87,5 @@ TimePickerThemeData _timePickerThemeData(ColorScheme colorScheme) => TimePickerT
         overlayColor: WidgetStatePropertyAll(
           colorScheme.error.scale(alpha: -0.9),
         ),
-      ).merge(_commonButtonStye),
+      ).merge(_commonButtonStyle),
     );

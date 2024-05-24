@@ -2,7 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 
-bool kIsMobile = !kIsWeb && (Platform.isAndroid || Platform.isIOS || Platform.isFuchsia);
+bool kIsMobile =
+    !kIsWeb && (Platform.isAndroid || Platform.isIOS || Platform.isFuchsia);
 
 double rem = kIsMobile ? 16 : 15;
 double kSmallSpacing = 0.75 * rem;

@@ -30,23 +30,23 @@ dev_dependencies:
 
 flutter:
   fonts:
-    - family: 'Open Sans'
+    - family: 'Fira Sans'
       fonts:
-        - asset: assets/fonts/OpenSans-VariableFont_wdth,wght.ttf
+        - asset: assets/fonts/FiraSans-Thin.ttf
           weight: 100
-        - asset: assets/fonts/OpenSans-VariableFont_wdth,wght.ttf
+        - asset: assets/fonts/FiraSans-ExtraLight.ttf
           weight: 200
-        - asset: assets/fonts/OpenSans-VariableFont_wdth,wght.ttf
+        - asset: assets/fonts/FiraSans-Light.ttf
           weight: 300
-        - asset: assets/fonts/OpenSans-VariableFont_wdth,wght.ttf
+        - asset: assets/fonts/FiraSans-Regular.ttf
           weight: 400
-        - asset: assets/fonts/OpenSans-VariableFont_wdth,wght.ttf
+        - asset: assets/fonts/FiraSans-Regular.ttf
           weight: 500
-        - asset: assets/fonts/OpenSans-VariableFont_wdth,wght.ttf
+        - asset: assets/fonts/FiraSans-Medium.ttf
           weight: 600
-        - asset: assets/fonts/OpenSans-VariableFont_wdth,wght.ttf
+        - asset: assets/fonts/FiraSans-SemiBold.ttf
           weight: 700
-        - asset: assets/fonts/OpenSans-VariableFont_wdth,wght.ttf
+        - asset: assets/fonts/FiraSans-Bold.ttf
           weight: 800
-        - asset: assets/fonts/OpenSans-VariableFont_wdth,wght.ttf
+        - asset: assets/fonts/FiraSans-Black.ttf
           weight: 900

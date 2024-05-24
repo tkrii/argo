@@ -9,7 +9,7 @@ createArgoLightTheme({
   Color? tertiary,
 }) {
   Brightness brightness = Brightness.light;
-  ArgoColors argoColors = ArgoColors.light();
+
   secondary ??= accent.shade2;
   tertiary ??= accent.shade1;
 
@@ -37,8 +37,8 @@ createArgoLightTheme({
     onTertiaryContainer: container(tertiary).foreground,
 
     /// error
-    error: argoColors.destructive,
-    onError: argoColors.destructive.foreground,
+    error: ArgoColors.light().destructive,
+    onError: ArgoColors.light().destructive.foreground,
 
     /// window color to [Scaffold]
     surface: const Color(0xfffafafa).applyHighContrast(highContrast),
@@ -56,22 +56,27 @@ createArgoLightTheme({
     surfaceContainer: const Color(0xffffffff).applyHighContrast(highContrast),
 
     /// view color to [Button] and [TextField]
-    surfaceContainerHighest: const Color(0xffffffff).applyHighContrast(highContrast),
+    surfaceContainerHighest:
+        const Color(0xffffffff).applyHighContrast(highContrast),
 
     /// headerbar color to [AppBar]
-    surfaceContainerHigh: const Color(0xffffffff).applyHighContrast(highContrast),
+    surfaceContainerHigh:
+        const Color(0xffffffff).applyHighContrast(highContrast),
 
     /// secondary sidebar color to selected **Items**
-    surfaceContainerLow: const Color(0xfff3f3f3).applyHighContrast(highContrast),
+    surfaceContainerLow:
+        const Color(0xfff3f3f3).applyHighContrast(highContrast),
 
     /// sidebar color to **Items** container (Navigation bars)
-    surfaceContainerLowest: const Color(0xffebebeb).applyHighContrast(highContrast),
+    surfaceContainerLowest:
+        const Color(0xffebebeb).applyHighContrast(highContrast),
 
     /// header bar shade color, used for decorations
     outline: const Color(0xff000000).scale(alpha: -0.88),
 
     /// divider color
-    outlineVariant: ArgoColors.white.foreground.scale(alpha: highContrast ? -0.5 : -0.85),
+    outlineVariant:
+        ArgoColors.white.foreground.scale(alpha: highContrast ? -0.5 : -0.85),
   );
 
   return createArgoTheme(scheme);

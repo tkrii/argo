@@ -1,17 +1,46 @@
 part of '../themes/scheme_theme.dart';
 
-CheckboxThemeData _checkboxThemeData(ColorScheme colorScheme) => CheckboxThemeData(
+CheckboxThemeData _checkboxThemeData(ColorScheme colorScheme) =>
+    CheckboxThemeData(
       fillColor: WidgetStateColor.resolveWith(
         (state) {
           if (state.contains(WidgetState.selected)) {
             if (state.contains(WidgetState.disabled)) {
-              return colorScheme.outline;
+              return colorScheme.outlineVariant;
             } else if (state.contains(WidgetState.error)) {
               return colorScheme.errorContainer;
             }
             return colorScheme.primary;
           } else {
             return ArgoColors.transparent;
+          }
+        },
+      ),
+      side: WidgetStateBorderSide.resolveWith(
+        (state) {
+          if (state.contains(WidgetState.error)) {
+            return BorderSide(
+              color: colorScheme.errorContainer,
+              width: kBorderOutline,
+            );
+          }
+          if (!state.contains(WidgetState.disabled)) {
+            if (state.contains(WidgetState.selected)) {
+              return BorderSide(
+                color: colorScheme.secondary,
+                width: kBorderOutline,
+              );
+            } else {
+              return BorderSide(
+                color: colorScheme.onSurface,
+                width: kBorderOutline,
+              );
+            }
+          } else {
+            return BorderSide(
+              color: colorScheme.outlineVariant,
+              width: kBorderOutline,
+            );
           }
         },
       ),
@@ -23,11 +52,11 @@ CheckboxThemeData _checkboxThemeData(ColorScheme colorScheme) => CheckboxThemeDa
             }
             return colorScheme.inverseSurface;
           }
-          return colorScheme.outline.mix(colorScheme.onPrimary);
+          return colorScheme.outlineVariant;
         },
       ),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(kBorderRadius),
+        borderRadius: BorderRadius.circular(kBorderRadius / 2),
       ),
     );
 
@@ -36,14 +65,14 @@ RadioThemeData _radioThemeData(ColorScheme colorScheme) => RadioThemeData(
         (state) {
           if (state.contains(WidgetState.selected)) {
             if (state.contains(WidgetState.disabled)) {
-              return colorScheme.outline;
+              return colorScheme.outlineVariant;
             } else if (state.contains(WidgetState.error)) {
               return colorScheme.errorContainer;
             } else {
               return colorScheme.primary;
             }
           } else if (state.contains(WidgetState.disabled)) {
-            return colorScheme.outline.mix(colorScheme.onPrimary);
+            return colorScheme.outlineVariant;
           } else {
             return colorScheme.onSurface;
           }

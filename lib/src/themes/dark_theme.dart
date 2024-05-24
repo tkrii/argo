@@ -9,11 +9,11 @@ ThemeData createArgoDarkTheme({
   Color? tertiary,
 }) {
   Brightness brightness = Brightness.dark;
-  ArgoColors argoColors = ArgoColors.dark();
   secondary ??= accent.shade4;
   tertiary ??= accent.shade5;
 
-  Color container(Color color) => const Color(0xff242424).applyHighContrast(highContrast).mix(color, 75);
+  Color container(Color color) =>
+      const Color(0xff242424).applyHighContrast(highContrast).mix(color, 75);
 
   ColorScheme scheme = ColorScheme(
     /// brightness
@@ -37,8 +37,8 @@ ThemeData createArgoDarkTheme({
     onTertiaryContainer: container(tertiary).foreground,
 
     /// error
-    error: argoColors.destructive,
-    onError: argoColors.destructive.foreground,
+    error: ArgoColors.dark().destructive,
+    onError: ArgoColors.dark().destructive.foreground,
 
     /// window color to [Scaffold]
     surface: const Color(0xff242424).applyHighContrast(highContrast),
@@ -56,22 +56,27 @@ ThemeData createArgoDarkTheme({
     surfaceContainer: const Color(0xff303030).mix(const Color(0xff383838)),
 
     /// view color to [Button] and [TextField]
-    surfaceContainerHighest: const Color(0xff1e1e1e).applyHighContrast(highContrast),
+    surfaceContainerHighest:
+        const Color(0xff1e1e1e).applyHighContrast(highContrast),
 
     /// headerBar color to [AppBar]
-    surfaceContainerHigh: const Color(0xff303030).applyHighContrast(highContrast),
+    surfaceContainerHigh:
+        const Color(0xff303030).applyHighContrast(highContrast),
 
     /// secondary sidebar color to selected **Items**
-    surfaceContainerLow: const Color(0xff2a2a2a).applyHighContrast(highContrast),
+    surfaceContainerLow:
+        const Color(0xff2a2a2a).applyHighContrast(highContrast),
 
     /// sidebar color to **Items** container (Navigation bars)
-    surfaceContainerLowest: const Color(0xff383838).applyHighContrast(highContrast),
+    surfaceContainerLowest:
+        const Color(0xff383838).applyHighContrast(highContrast),
 
     /// header bar shade color, used for decorations
     outline: const Color(0xff000000).scale(alpha: -0.64),
 
     /// divider color
-    outlineVariant: ArgoColors.black.foreground.scale(alpha: highContrast ? -0.5 : -0.85),
+    outlineVariant:
+        ArgoColors.black.foreground.scale(alpha: highContrast ? -0.5 : -0.85),
   );
 
   return createArgoTheme(scheme);

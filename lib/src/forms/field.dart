@@ -1,88 +1,79 @@
 part of '../themes/scheme_theme.dart';
 
 InputDecorationTheme _inputDecorationTheme(ColorScheme colorScheme) {
-  TextStyle textStyle = createTextTheme(colorScheme.onSurface).bodySmall!.copyWith(
-        color: colorScheme.onSurface,
-      );
-
+  BorderRadius borderRadius = BorderRadius.only(
+    topRight: Radius.circular(kBorderRadius),
+    topLeft: Radius.circular(kBorderRadius),
+  );
   return InputDecorationTheme(
-    labelStyle: textStyle,
     filled: true,
     fillColor: colorScheme.surfaceContainerHighest,
-    floatingLabelStyle: createTextTheme(colorScheme.onSurface).labelLarge!,
-    helperStyle: createTextTheme(colorScheme.onSurface).bodySmall!,
+    counterStyle: createTextTheme(colorScheme.onSurface).bodySmall,
+    helperStyle: createTextTheme(colorScheme.onSurface).bodySmall,
+    errorStyle: createTextTheme(colorScheme.errorContainer).bodySmall,
+    prefixStyle:
+        createTextTheme(colorScheme.onSurface.scale(alpha: -0.2)).labelMedium,
+    suffixStyle:
+        createTextTheme(colorScheme.onSurface.scale(alpha: -0.2)).labelMedium,
+    prefixIconColor: colorScheme.onSurface.scale(alpha: -0.2),
+    suffixIconColor: colorScheme.onSurface.scale(alpha: -0.2),
+    floatingLabelStyle: createTextTheme(colorScheme.onSurface).labelMedium,
+    hintStyle:
+        createTextTheme(colorScheme.onSurface.scale(alpha: -0.4)).bodyMedium,
+    labelStyle: WidgetStateTextStyle.resolveWith((state) {
+      if (state.contains(WidgetState.disabled)) {
+        return createTextTheme(colorScheme.outlineVariant).bodyMedium!;
+      }
+      return createTextTheme(colorScheme.onSurface).bodyMedium!;
+    }),
     helperMaxLines: 3,
-    hintStyle: createTextTheme(colorScheme.onSurface).bodyMedium!.copyWith(
-          color: colorScheme.outline,
-        ),
-    errorStyle: createTextTheme(colorScheme.onSurface).bodySmall?.copyWith(
-          color: colorScheme.error,
-        ),
     errorMaxLines: 3,
     isDense: !kIsMobile,
     contentPadding: EdgeInsets.all(kSmallSpacing),
     iconColor: colorScheme.onSurface.scale(alpha: -0.2),
     disabledBorder: UnderlineInputBorder(
-      borderRadius: BorderRadius.only(
-        topRight: Radius.circular(kBorderRadius),
-        topLeft: Radius.circular(kBorderRadius),
-      ),
+      borderRadius: borderRadius,
       borderSide: BorderSide(
         width: kBorderWidth,
         color: _disabled(
-          colorScheme.inverseSurface.mix(colorScheme.surface, 75),
+          colorScheme.outlineVariant,
         ),
       ),
     ),
     enabledBorder: UnderlineInputBorder(
-      borderRadius: BorderRadius.only(
-        topRight: Radius.circular(kBorderRadius),
-        topLeft: Radius.circular(kBorderRadius),
-      ),
+      borderRadius: borderRadius,
       borderSide: BorderSide(
         width: kBorderWidth,
-        color: colorScheme.inverseSurface.mix(colorScheme.surface, 75),
+        color: colorScheme.primary,
       ),
     ),
     errorBorder: UnderlineInputBorder(
-      borderRadius: BorderRadius.only(
-        topRight: Radius.circular(kBorderRadius),
-        topLeft: Radius.circular(kBorderRadius),
-      ),
+      borderRadius: borderRadius,
       borderSide: BorderSide(
         width: kBorderWidth,
         color: colorScheme.errorContainer,
       ),
     ),
     focusedErrorBorder: UnderlineInputBorder(
-      borderRadius: BorderRadius.only(
-        topRight: Radius.circular(kBorderRadius),
-        topLeft: Radius.circular(kBorderRadius),
-      ),
+      borderRadius: borderRadius,
       borderSide: BorderSide(
         width: kBorderOutline,
         color: colorScheme.error,
       ),
     ),
     focusedBorder: UnderlineInputBorder(
-      borderRadius: BorderRadius.only(
-        topRight: Radius.circular(kBorderRadius),
-        topLeft: Radius.circular(kBorderRadius),
-      ),
+      borderRadius: borderRadius,
       borderSide: BorderSide(
         width: kBorderOutline,
         color: colorScheme.tertiary,
       ),
     ),
-    activeIndicatorBorder: BorderSide(
-      color: colorScheme.primary,
-      width: kBorderOutline,
-    ),
   );
 }
 
-TextSelectionThemeData _textSelectionThemeData(ColorScheme colorScheme) => TextSelectionThemeData(
-      cursorColor: colorScheme.primary,
-      selectionColor: (colorScheme.primary.mix(colorScheme.surface)).scale(alpha: -0.5),
-      selectionHandleColor: colorScheme.tertiary,
+TextSelectionThemeData _textSelectionThemeData(ColorScheme colorScheme) =>
+    TextSelectionThemeData(
+      cursorColor: colorScheme.secondary,
+      selectionColor: colorScheme.tertiary,
+      selectionHandleColor: colorScheme.primary,
     );
