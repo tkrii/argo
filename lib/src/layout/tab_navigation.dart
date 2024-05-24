@@ -21,7 +21,7 @@ NavigationRailThemeData _navigationRailThemeData(ColorScheme colorScheme) {
     indicatorShape: RoundedRectangleBorder(
       side: BorderSide(
         color: colorScheme.outline,
-        width: kBorderOutline,
+        width: kBorderWidth,
       ),
       borderRadius: BorderRadius.circular(kBorderRadius),
     ),

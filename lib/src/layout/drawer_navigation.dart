@@ -24,6 +24,7 @@ NavigationDrawerThemeData _navigationDrawerTheme(ColorScheme colorScheme) {
     indicatorShape: RoundedRectangleBorder(
       side: BorderSide(
         color: colorScheme.outline,
+        width: kBorderWidth,
       ),
       borderRadius: BorderRadius.circular(kBorderRadius),
     ),

@@ -19,6 +19,10 @@ NavigationBarThemeData _navigationBarTheme(ColorScheme colorScheme) {
     backgroundColor: colorScheme.surfaceContainerLow,
     indicatorColor: colorScheme.surfaceContainerLowest,
     indicatorShape: RoundedRectangleBorder(
+      side: BorderSide(
+        color: colorScheme.outline,
+        width: kBorderWidth,
+      ),
       borderRadius: BorderRadius.circular(kBorderRadius),
     ),
     iconTheme: WidgetStateProperty.resolveWith(
