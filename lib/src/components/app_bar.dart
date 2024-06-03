@@ -6,7 +6,6 @@ AppBarTheme _appBarTheme(ColorScheme colorScheme) => AppBarTheme(
       shape: Border(
         bottom: BorderSide(
           color: colorScheme.outline,
-          width: kBorderWidth,
         ),
       ),
       iconTheme: _iconThemeData(colorScheme).copyWith(
@@ -23,8 +22,5 @@ AppBarTheme _appBarTheme(ColorScheme colorScheme) => AppBarTheme(
               statusBarIconBrightness: Brightness.light,
               statusBarColor: ArgoColors.transparent,
             ),
-      titleTextStyle: createTextTheme(colorScheme.onSurfaceVariant).titleMedium?.copyWith(
-            fontWeight: FontWeight.w500,
-            fontSize: 1.25 * rem,
-          ),
+      titleTextStyle: createTextTheme(colorScheme.onSurfaceVariant).titleLarge,
     );

@@ -1,5 +1,4 @@
 import 'package:argo/argo.dart';
-import 'package:argo/src/themes/styles.dart';
 import 'package:argo/src/themes/text_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show SystemUiOverlayStyle;
@@ -45,7 +44,6 @@ ThemeData createArgoTheme(
     appBarTheme: _appBarTheme(colorScheme),
     progressIndicatorTheme: _progressIndicatorThemeData(colorScheme),
     sliderTheme: _sliderThemeData(colorScheme),
-    tooltipTheme: _tooltipTheme(colorScheme),
     filledButtonTheme: _filledButtonThemeData(colorScheme),
     outlinedButtonTheme: _outlinedButtonThemeData(colorScheme),
     elevatedButtonTheme: _elevatedButtonThemeData(colorScheme),

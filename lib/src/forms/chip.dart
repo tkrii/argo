@@ -18,11 +18,4 @@ ChipThemeData _chipThemeData(ColorScheme colorScheme) => ChipThemeData(
           }
         },
       ),
-      shape: RoundedRectangleBorder(
-        side: BorderSide(
-          width: kBorderWidth,
-          color: colorScheme.outline,
-        ),
-        borderRadius: BorderRadius.circular(kBigBorderRadius),
-      ),
     );

@@ -20,11 +20,6 @@ SearchBarThemeData _searchBarThemeData(ColorScheme colorScheme) {
         }
       },
     ),
-    shape: WidgetStatePropertyAll(
-      RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(kBigBorderRadius),
-      ),
-    ),
   );
 }
 

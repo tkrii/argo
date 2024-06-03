@@ -8,7 +8,4 @@ DropdownMenuThemeData _dropdownMenuThemeData(ColorScheme colorScheme) => Dropdow
 PopupMenuThemeData _popupMenuThemeData(ColorScheme colorScheme) => PopupMenuThemeData(
       iconColor: colorScheme.isLight ? const Color(0xff323232) : ArgoColors.white,
       color: colorScheme.surfaceContainer,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(kBorderRadius),
-      ),
     );

@@ -1,7 +1,6 @@
 part of '../themes/scheme_theme.dart';
 
-CheckboxThemeData _checkboxThemeData(ColorScheme colorScheme) =>
-    CheckboxThemeData(
+CheckboxThemeData _checkboxThemeData(ColorScheme colorScheme) => CheckboxThemeData(
       fillColor: WidgetStateColor.resolveWith(
         (state) {
           if (state.contains(WidgetState.selected)) {
@@ -16,34 +15,6 @@ CheckboxThemeData _checkboxThemeData(ColorScheme colorScheme) =>
           }
         },
       ),
-      side: WidgetStateBorderSide.resolveWith(
-        (state) {
-          if (state.contains(WidgetState.error)) {
-            return BorderSide(
-              color: colorScheme.errorContainer,
-              width: kBorderOutline,
-            );
-          }
-          if (!state.contains(WidgetState.disabled)) {
-            if (state.contains(WidgetState.selected)) {
-              return BorderSide(
-                color: colorScheme.secondary,
-                width: kBorderOutline,
-              );
-            } else {
-              return BorderSide(
-                color: colorScheme.onSurface,
-                width: kBorderOutline,
-              );
-            }
-          } else {
-            return BorderSide(
-              color: colorScheme.outlineVariant,
-              width: kBorderOutline,
-            );
-          }
-        },
-      ),
       checkColor: WidgetStateProperty.resolveWith(
         (state) {
           if (!state.contains(WidgetState.disabled)) {
@@ -54,9 +25,6 @@ CheckboxThemeData _checkboxThemeData(ColorScheme colorScheme) =>
           }
           return colorScheme.outlineVariant;
         },
-      ),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(kBorderRadius / 2),
       ),
     );
 
@@ -101,5 +69,4 @@ SwitchThemeData _switchThemeData(ColorScheme colorScheme) => SwitchThemeData(
         },
       ),
       trackOutlineColor: WidgetStateColor.transparent,
-      trackOutlineWidth: WidgetStatePropertyAll(rem * 0.1875),
     );

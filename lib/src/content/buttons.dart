@@ -3,15 +3,6 @@ part of '../themes/scheme_theme.dart';
 Color _disabled(Color color) => color.scale(alpha: -0.5);
 
 ButtonStyle _commonButtonStyle = ButtonStyle(
-  shape: WidgetStatePropertyAll(
-    RoundedRectangleBorder(borderRadius: BorderRadius.circular(kBorderRadius)),
-  ),
-  padding: WidgetStatePropertyAll(
-    EdgeInsets.symmetric(
-      vertical: 0.75 * rem,
-      horizontal: rem,
-    ),
-  ),
   elevation: WidgetStateProperty.resolveWith((state) {
     if (state.contains(WidgetState.disabled)) {
       return 0;
@@ -21,8 +12,7 @@ ButtonStyle _commonButtonStyle = ButtonStyle(
   }),
 );
 
-FilledButtonThemeData _filledButtonThemeData(ColorScheme colorScheme) =>
-    FilledButtonThemeData(
+FilledButtonThemeData _filledButtonThemeData(ColorScheme colorScheme) => FilledButtonThemeData(
       style: ButtonStyle(
         backgroundColor: WidgetStateColor.resolveWith(
           (state) {
@@ -47,8 +37,7 @@ FilledButtonThemeData _filledButtonThemeData(ColorScheme colorScheme) =>
       ).merge(_commonButtonStyle),
     );
 
-ElevatedButtonThemeData _elevatedButtonThemeData(ColorScheme colorScheme) =>
-    ElevatedButtonThemeData(
+ElevatedButtonThemeData _elevatedButtonThemeData(ColorScheme colorScheme) => ElevatedButtonThemeData(
       style: ButtonStyle(
         backgroundColor: WidgetStateColor.resolveWith(
           (state) {
@@ -67,16 +56,14 @@ ElevatedButtonThemeData _elevatedButtonThemeData(ColorScheme colorScheme) =>
       ).merge(_commonButtonStyle),
     );
 
-TextButtonThemeData _textButtonThemeData(ColorScheme colorScheme) =>
-    TextButtonThemeData(
+TextButtonThemeData _textButtonThemeData(ColorScheme colorScheme) => TextButtonThemeData(
       style: ButtonStyle(
         foregroundColor: WidgetStateColor.resolveWith(
           (state) {
             Color foreground = colorScheme.primary;
             if (state.contains(WidgetState.disabled)) {
               return _disabled(foreground);
-            } else if (state.contains(WidgetState.focused) ||
-                state.contains(WidgetState.hovered)) {
+            } else if (state.contains(WidgetState.focused) || state.contains(WidgetState.hovered)) {
               return colorScheme.tertiary;
             } else {
               return foreground;
@@ -86,8 +73,7 @@ TextButtonThemeData _textButtonThemeData(ColorScheme colorScheme) =>
       ).merge(_commonButtonStyle),
     );
 
-OutlinedButtonThemeData _outlinedButtonThemeData(ColorScheme colorScheme) =>
-    OutlinedButtonThemeData(
+OutlinedButtonThemeData _outlinedButtonThemeData(ColorScheme colorScheme) => OutlinedButtonThemeData(
       style: ButtonStyle(
         backgroundColor: WidgetStateColor.transparent,
         foregroundColor: WidgetStateColor.resolveWith(
@@ -95,8 +81,7 @@ OutlinedButtonThemeData _outlinedButtonThemeData(ColorScheme colorScheme) =>
             Color foreground = colorScheme.primary;
             if (state.contains(WidgetState.disabled)) {
               return _disabled(foreground);
-            } else if (state.contains(WidgetState.focused) ||
-                state.contains(WidgetState.hovered)) {
+            } else if (state.contains(WidgetState.focused) || state.contains(WidgetState.hovered)) {
               return colorScheme.secondary;
             } else {
               return foreground;
@@ -107,8 +92,7 @@ OutlinedButtonThemeData _outlinedButtonThemeData(ColorScheme colorScheme) =>
           Color color = colorScheme.primary;
           if (state.contains(WidgetState.disabled)) {
             color = _disabled(color);
-          } else if (state.contains(WidgetState.focused) ||
-              state.contains(WidgetState.hovered)) {
+          } else if (state.contains(WidgetState.focused) || state.contains(WidgetState.hovered)) {
             color = colorScheme.secondary;
           }
           return BorderSide(color: color);
@@ -116,28 +100,21 @@ OutlinedButtonThemeData _outlinedButtonThemeData(ColorScheme colorScheme) =>
       ).merge(_commonButtonStyle),
     );
 
-FloatingActionButtonThemeData _floatingActionButtonThemeData(
-        ColorScheme colorScheme) =>
-    FloatingActionButtonThemeData(
+FloatingActionButtonThemeData _floatingActionButtonThemeData(ColorScheme colorScheme) => FloatingActionButtonThemeData(
       backgroundColor: colorScheme.secondary,
       foregroundColor: colorScheme.onSecondary,
       hoverColor: colorScheme.tertiary,
       focusColor: colorScheme.tertiary,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(kBigBorderRadius),
-      ),
     );
 
-MenuButtonThemeData _menuButtonThemeData(ColorScheme colorScheme) =>
-    MenuButtonThemeData(
+MenuButtonThemeData _menuButtonThemeData(ColorScheme colorScheme) => MenuButtonThemeData(
       style: ButtonStyle(
         foregroundColor: WidgetStateColor.resolveWith(
           (state) {
             Color foreground = colorScheme.onSurface;
             if (state.contains(WidgetState.disabled)) {
               return _disabled(foreground);
-            } else if (state.contains(WidgetState.focused) ||
-                state.contains(WidgetState.hovered)) {
+            } else if (state.contains(WidgetState.focused) || state.contains(WidgetState.hovered)) {
               return foreground.mix(colorScheme.secondary);
             } else {
               return foreground;
@@ -147,16 +124,14 @@ MenuButtonThemeData _menuButtonThemeData(ColorScheme colorScheme) =>
       ).merge(_commonButtonStyle),
     );
 
-SegmentedButtonThemeData _segmentedButtonThemeData(ColorScheme colorScheme) =>
-    SegmentedButtonThemeData(
+SegmentedButtonThemeData _segmentedButtonThemeData(ColorScheme colorScheme) => SegmentedButtonThemeData(
       style: ButtonStyle(
         backgroundColor: WidgetStateColor.resolveWith(
           (state) {
             Color background = colorScheme.surfaceContainerHighest;
             if (state.contains(WidgetState.selected)) {
               background = colorScheme.primary;
-              if (state.contains(WidgetState.hovered) ||
-                  state.contains(WidgetState.focused)) {
+              if (state.contains(WidgetState.hovered) || state.contains(WidgetState.focused)) {
                 background = colorScheme.secondary;
               }
             }
@@ -169,27 +144,22 @@ SegmentedButtonThemeData _segmentedButtonThemeData(ColorScheme colorScheme) =>
         side: WidgetStateBorderSide.resolveWith(
           (state) {
             if (state.contains(WidgetState.selected)) {
-              if (state.contains(WidgetState.hovered) ||
-                  state.contains(WidgetState.focused)) {
+              if (state.contains(WidgetState.hovered) || state.contains(WidgetState.focused)) {
                 return BorderSide(
                   color: colorScheme.tertiary,
-                  width: kBorderOutline,
                 );
               }
               return BorderSide(
                 color: colorScheme.secondary,
-                width: kBorderOutline,
               );
             }
             if (state.contains(WidgetState.disabled)) {
               return BorderSide(
                 color: _disabled(colorScheme.tertiary),
-                width: kBorderWidth,
               );
             }
             return BorderSide(
               color: colorScheme.outline,
-              width: kBorderWidth,
             );
           },
         ),
@@ -212,20 +182,16 @@ SegmentedButtonThemeData _segmentedButtonThemeData(ColorScheme colorScheme) =>
       ).merge(_commonButtonStyle),
     );
 
-ToggleButtonsThemeData _toggleButtonsThemeData(ColorScheme colorScheme) =>
-    ToggleButtonsThemeData(
+ToggleButtonsThemeData _toggleButtonsThemeData(ColorScheme colorScheme) => ToggleButtonsThemeData(
       color: colorScheme.onSurface,
       fillColor: colorScheme.primary,
       selectedColor: colorScheme.onPrimary,
-      borderRadius: BorderRadius.circular(kBorderRadius),
       hoverColor: colorScheme.secondary,
       focusColor: colorScheme.tertiary,
       borderColor: colorScheme.outline,
-      selectedBorderColor:
-          colorScheme.surfaceContainerHighest.mix(colorScheme.primary),
+      selectedBorderColor: colorScheme.surfaceContainerHighest.mix(colorScheme.primary),
       disabledBorderColor: _disabled(colorScheme.outline),
       disabledColor: _disabled(
         colorScheme.onSurface,
       ),
-      borderWidth: kBorderWidth,
     );

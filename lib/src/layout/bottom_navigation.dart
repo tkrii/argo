@@ -17,17 +17,10 @@ NavigationBarThemeData _navigationBarTheme(ColorScheme colorScheme) {
   return NavigationBarThemeData(
     elevation: 5,
     backgroundColor: colorScheme.surfaceContainerLow,
-    indicatorColor: colorScheme.surfaceContainerLowest,
-    indicatorShape: RoundedRectangleBorder(
-      side: BorderSide(
-        color: colorScheme.outline,
-        width: kBorderWidth,
-      ),
-      borderRadius: BorderRadius.circular(kBorderRadius),
-    ),
+    indicatorColor: colorScheme.primary,
     iconTheme: WidgetStateProperty.resolveWith(
       (states) => states.contains(WidgetState.selected)
-          ? IconThemeData(color: colorScheme.onSurface)
+          ? IconThemeData(color: colorScheme.onPrimary)
           : IconThemeData(color: colorScheme.onSurface.withOpacity(0.6)),
     ),
   );

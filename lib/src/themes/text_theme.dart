@@ -1,80 +1,79 @@
-import 'package:argo/src/themes/styles.dart';
 import 'package:flutter/material.dart';
 
 TextTheme createTextTheme(Color textColor) {
   return TextTheme(
     displayLarge: _TextStyle(
-      fontSize: 3.5 * rem,
+      fontSize: 57,
       fontWeight: FontWeight.w400,
       textColor: textColor,
     ),
     displayMedium: _TextStyle(
-      fontSize: 2.8125 * rem,
+      fontSize: 45,
       fontWeight: FontWeight.w400,
       textColor: textColor,
     ),
     displaySmall: _TextStyle(
-      fontSize: 2.25 * rem,
+      fontSize: 36,
       fontWeight: FontWeight.w400,
       textColor: textColor,
     ),
     headlineLarge: _TextStyle(
-      fontSize: 2 * rem,
+      fontSize: 32,
       fontWeight: FontWeight.normal,
       textColor: textColor,
     ),
     headlineMedium: _TextStyle(
-      fontSize: 1.75 * rem,
+      fontSize: 28,
       fontWeight: FontWeight.normal,
       textColor: textColor,
     ),
     headlineSmall: _TextStyle(
-      fontSize: 1.5 * rem,
+      fontSize: 24,
       fontWeight: FontWeight.normal,
       textColor: textColor,
     ),
     titleLarge: _TextStyle(
-      fontSize: 1.375 * rem,
-      fontWeight: FontWeight.w500,
+      fontSize: 22,
+      fontWeight: FontWeight.w400,
       textColor: textColor,
     ),
     titleMedium: _TextStyle(
-      fontSize: rem,
+      fontSize: 16,
       fontWeight: FontWeight.w500,
       textColor: textColor,
     ),
     titleSmall: _TextStyle(
-      fontSize: 0.875 * rem,
+      fontSize: 14,
       fontWeight: FontWeight.w500,
       textColor: textColor,
     ),
     bodyLarge: _TextStyle(
-      fontSize: rem,
+      fontSize: 16,
       fontWeight: FontWeight.normal,
       textColor: textColor,
     ),
     bodyMedium: _TextStyle(
-      fontSize: 0.875 * rem,
+      fontSize: 14,
       fontWeight: FontWeight.normal,
       textColor: textColor,
     ),
     bodySmall: _TextStyle(
-      fontSize: 0.75 * rem,
+      fontSize: 12,
       fontWeight: FontWeight.normal,
       textColor: textColor,
     ),
     labelLarge: _TextStyle(
-      fontSize: 0.875 * rem,
+      fontSize: 14,
       fontWeight: FontWeight.w500,
       textColor: textColor,
     ),
     labelMedium: _TextStyle(
-      fontSize: 0.75 * rem,
+      fontSize: 012,
       fontWeight: FontWeight.w500,
       textColor: textColor,
     ),
     labelSmall: _TextStyle(
-      fontSize: 0.6875 * rem,
+      fontSize: 11,
       fontWeight: FontWeight.w500,
       textColor: textColor,
     ),

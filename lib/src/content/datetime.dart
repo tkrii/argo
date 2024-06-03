@@ -1,12 +1,8 @@
 part of '../themes/scheme_theme.dart';
 
-DatePickerThemeData _datePickerThemeData(ColorScheme colorScheme) =>
-    DatePickerThemeData(
+DatePickerThemeData _datePickerThemeData(ColorScheme colorScheme) => DatePickerThemeData(
       backgroundColor: colorScheme.surfaceContainer,
       elevation: 4,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(kBorderRadius),
-      ),
       headerBackgroundColor: colorScheme.surfaceContainerHigh,
       headerForegroundColor: colorScheme.onSurface,
       dividerColor: colorScheme.outline,
@@ -22,13 +18,9 @@ DatePickerThemeData _datePickerThemeData(ColorScheme colorScheme) =>
       ).merge(_commonButtonStyle),
     );
 
-TimePickerThemeData _timePickerThemeData(ColorScheme colorScheme) =>
-    TimePickerThemeData(
+TimePickerThemeData _timePickerThemeData(ColorScheme colorScheme) => TimePickerThemeData(
       backgroundColor: colorScheme.surfaceContainer,
       elevation: 4,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(kBorderRadius),
-      ),
       dayPeriodTextColor: WidgetStateColor.resolveWith(
         (state) {
           if (state.contains(WidgetState.selected)) {
@@ -45,9 +37,6 @@ TimePickerThemeData _timePickerThemeData(ColorScheme colorScheme) =>
           return colorScheme.surfaceContainerHighest;
         },
       ),
-      dayPeriodShape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(kBorderRadius),
-      ),
       dialBackgroundColor: colorScheme.surfaceContainerLow,
       dialHandColor: colorScheme.primary,
       dialTextColor: WidgetStateColor.resolveWith(
@@ -57,10 +46,6 @@ TimePickerThemeData _timePickerThemeData(ColorScheme colorScheme) =>
           }
           return colorScheme.onSurface;
         },
-      ),
-      hourMinuteShape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(kBorderRadius),
-        side: BorderSide(color: colorScheme.outline),
       ),
       hourMinuteColor: WidgetStateColor.resolveWith(
         (state) {

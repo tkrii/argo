@@ -17,15 +17,8 @@ NavigationRailThemeData _navigationRailThemeData(ColorScheme colorScheme) {
   return NavigationRailThemeData(
     elevation: 5,
     backgroundColor: colorScheme.surfaceContainerLow,
-    indicatorColor: colorScheme.surfaceContainerLowest,
-    indicatorShape: RoundedRectangleBorder(
-      side: BorderSide(
-        color: colorScheme.outline,
-        width: kBorderWidth,
-      ),
-      borderRadius: BorderRadius.circular(kBorderRadius),
-    ),
-    selectedIconTheme: IconThemeData(color: colorScheme.onSurface),
+    indicatorColor: colorScheme.primary,
+    selectedIconTheme: IconThemeData(color: colorScheme.onPrimary),
     unselectedIconTheme: IconThemeData(
       color: colorScheme.onSurface.withOpacity(0.6),
     ),
